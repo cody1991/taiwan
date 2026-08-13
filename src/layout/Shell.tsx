@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Snow } from "../components/Snow";
 import { trip } from "../data";
@@ -13,8 +12,6 @@ const links = [
 ];
 
 export function Shell() {
-  const [open, setOpen] = useState(false);
-
   return (
     <div className="shell">
       <Snow />
@@ -22,27 +19,14 @@ export function Shell() {
         跳到正文
       </a>
       <aside className="rail">
-        <NavLink to="/" className="brand" onClick={() => setOpen(false)}>
+        <NavLink to="/" className="brand">
           <span className="latin">Winter island</span>
           <strong>{trip.title}</strong>
           <small>{trip.subtitle}</small>
         </NavLink>
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? "收起" : "目录"}
-        </button>
-        <nav className={open ? "nav is-open" : "nav"} aria-label="行程章节">
+        <nav className="nav" aria-label="行程章节">
           {links.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === "/"}
-              onClick={() => setOpen(false)}
-            >
+            <NavLink key={link.to} to={link.to} end={link.to === "/"}>
               {link.label}
             </NavLink>
           ))}

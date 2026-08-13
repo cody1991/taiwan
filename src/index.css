@@ -106,10 +106,6 @@ body::before {
   line-height: 1.5;
 }
 
-.menu-toggle {
-  display: none;
-}
-
 .nav {
   display: flex;
   flex-direction: column;
@@ -675,31 +671,15 @@ a {
 
 @media (max-width: 800px) {
   .shell {
-    grid-template-columns: 1fr;
+    grid-template-columns: 148px minmax(0, 1fr);
   }
 
   .rail {
-    height: auto;
-    position: relative;
-    padding: 16px 18px;
+    padding: 18px 14px 28px;
   }
 
-  .menu-toggle {
-    display: block;
-    margin: 8px 0 0;
-    background: none;
-    border: 1px solid rgba(244, 239, 230, 0.3);
-    color: #f4efe6;
-    padding: 6px 10px;
-  }
-
-  .nav {
-    display: none;
-    padding-top: 12px;
-  }
-
-  .nav.is-open {
-    display: flex;
+  .brand strong {
+    font-size: 20px;
   }
 
   .stage {
