@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { lifeClothes, lifeStay, lifeTransit, weather } from "../data";
+import { bookings, lifeClothes, lifeStay, lifeTransit, weather } from "../data";
 
 export function LifePage() {
   return (
@@ -10,6 +10,15 @@ export function LifePage() {
       </p>
 
       <h2>住</h2>
+      <p className="links-inline">
+        {bookings
+          .filter((item) => item.id === "agoda" || item.id === "booking")
+          .map((item) => (
+            <a key={item.id} href={item.href} target="_blank" rel="noreferrer">
+              {item.name}
+            </a>
+          ))}
+      </p>
       {lifeStay.map((item) => (
         <section key={item.title} className="block">
           <h3>{item.title}</h3>

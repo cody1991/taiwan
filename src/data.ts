@@ -326,7 +326,7 @@ export const lifeStay = [
   {
     title: "下单规则",
     detail:
-      "入台证没下来前只订可免费取消。姓名和护照、机票、入台证一致。Booking / Agoda 就行。别订不写护照、只能现场付现、或写着不接待大陆客人的民宿。正规旅馆给护照和入台证就能住。",
+      "入台证没下来前只订可免费取消。姓名和护照、机票、入台证一致。平台用 Agoda 或 Booking 都行，台湾 Agoda 往往更便宜；人在荷兰，Booking 出问题找客服方便。Trip.com、酒店官网也可以。别订不写护照、只能现场付现、或写着不接待大陆客人的民宿。正规旅馆给护照和入台证就能住。入台证和机票锁死后再改不可退，通常会再便宜一点。",
   },
   {
     title: "位置比星级重要",
@@ -553,6 +553,18 @@ export const bookings = [
     name: "台湾高铁",
     href: "https://www.thsrc.com.tw",
     note: "12/20 去、12/22 回",
+  },
+  {
+    id: "agoda",
+    name: "Agoda",
+    href: "https://www.agoda.com",
+    note: "订房，台湾常更便宜",
+  },
+  {
+    id: "booking",
+    name: "Booking",
+    href: "https://www.booking.com",
+    note: "订房，荷兰客服方便",
   },
 ];
 
