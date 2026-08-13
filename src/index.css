@@ -1,0 +1,182 @@
+:root {
+  --paper: #f3eee4;
+  --paper-2: #e8e0d2;
+  --ink: #15262d;
+  --ink-soft: #3d534c;
+  --sea: #1f4b55;
+  --persimmon: #b4451e;
+  --gold: #c4a574;
+  --line: rgba(21, 38, 45, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(196, 165, 116, 0.18), transparent 50%),
+    radial-gradient(800px 400px at 100% 0%, rgba(31, 75, 85, 0.08), transparent 45%),
+    var(--paper);
+  font-family: "Noto Sans SC", "PingFang SC", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.display {
+  font-family: "Noto Serif TC", "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.latin {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+}
+
+.page {
+  max-width: 920px;
+}
+
+.route-ribbon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 8px 0 28px;
+}
+
+.route-stop {
+  padding: 14px 16px 16px;
+  background: rgba(255, 252, 246, 0.72);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--sea);
+}
+
+.route-stop .code {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--sea);
+}
+
+.route-stop .meta {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.day-card {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 16px;
+}
+
+.day-date {
+  font-family: "Noto Serif TC", serif;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.day-city {
+  color: var(--persimmon);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.route-map {
+  margin: 8px 0 32px;
+  padding: 18px 18px 8px;
+  background: rgba(255, 252, 246, 0.8);
+  border: 1px solid var(--line);
+}
+
+.route-map-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.route-map svg {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.route-map .island {
+  fill: #dce6df;
+  stroke: #1f4b55;
+  stroke-width: 1.4;
+}
+
+.route-map .route-line {
+  stroke: #b4451e;
+  stroke-width: 2.2;
+  stroke-dasharray: 5 4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.route-map .stop-dot {
+  fill: #f3eee4;
+  stroke: #b4451e;
+  stroke-width: 2;
+}
+
+.route-map .stop-index {
+  fill: #b4451e;
+  font-size: 8px;
+  font-weight: 600;
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+.route-map .stop-label {
+  fill: #15262d;
+  font-size: 9px;
+  font-weight: 600;
+  font-family: "Noto Serif TC", serif;
+}
+
+.route-map .stop-note {
+  fill: #3d534c;
+  font-size: 7.5px;
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .route-map-bar {
+    flex-direction: column;
+  }
+}
+  .route-ribbon {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .day-card {
+    grid-template-columns: 1fr;
+  }
+}
