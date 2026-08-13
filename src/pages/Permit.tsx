@@ -1,4 +1,4 @@
-import { borderNotes, permitFacts, permitSteps } from "../data";
+import { borderNotes, packNo, packOk, permitFacts, permitSteps } from "../data";
 
 export function PermitPage() {
   return (
@@ -47,6 +47,21 @@ export function PermitPage() {
           <p>{item.detail}</p>
         </section>
       ))}
+
+      <h2>可以带</h2>
+      <ul>
+        {packOk.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+
+      <h2>不可以带</h2>
+      <p>入台湾和回深圳都卡鲜货。伴手礼买包装食品，不要买水果、肉干当手信。</p>
+      <ul>
+        {packNo.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
     </article>
   );
 }
