@@ -77,10 +77,7 @@ export const trip = {
   cnyEve: "2027-02-05",
   cnyDay: "2027-02-06",
   permitWindow: "2026-09-17",
-  awayDays: 52,
   taiwanDays: 8,
-  shenzhenDays: 43,
-  nlLeaveDays: 4,
 };
 
 export const phases = [
@@ -104,7 +101,7 @@ export const taiwanDays: TaiwanDay[] = [
       "捷运站买悠游卡并加值，坐到台北车站（A1），大约 40 分钟。",
       "酒店多半 15:00 才入住。先寄行李，找早餐店或便利店，回房间睡到下午。",
       "醒来换一点现金。下午只在住处附近走：中山或北车商圈即可。",
-      "晚上饶河或宁夏，吃蚵仔煎、胡椒饼就够。十一点前睡。",
+      "晚上宁夏（近中山）或饶河。华西在龙山寺旁边，下午去了庙再顺路。",
     ],
     tips: ["第一天不排故宫、不去九份"],
     mapsQuery: "台北车站",
@@ -120,7 +117,7 @@ export const taiwanDays: TaiwanDay[] = [
     city: "台北",
     title: "故宫 + 大稻埕",
     stay: "台北",
-    body: "故宫周五开馆。时差没倒过来就把故宫放到下午，老城放到上午。",
+    body: "故宫周五开馆。时差还在就晚一点出门，中午前到也来得及。",
     beats: [
       "散客不用预约。现场买普通参观券，外籍约 NT$350（国人凭身分证才 150，你的护照走外籍票）。09:00–17:00，16:30 停售。周一休馆，今天周五能进。",
       "捷运淡水线到士林，出站转红 30 或计程车到故宫正馆。别走去剑潭爬山。",
@@ -542,6 +539,7 @@ export const checklist: ChecklistGroup[] = [
       { id: "residence", label: "荷兰居留卡放随身，不要托运" },
       { id: "onward", label: "准备酒店地址、12/24 离台机票截图，入境台湾备用" },
       { id: "npm", label: "故宫散客不用预约，现场买外籍票即可" },
+      { id: "ams-day", label: "12/16 八点前到史基浦" },
     ],
   },
   {
@@ -549,7 +547,6 @@ export const checklist: ChecklistGroup[] = [
     title: "在路上",
     items: [
       { id: "souvenir", label: "12/22 买伴手礼" },
-      { id: "ams-day", label: "12/16 八点前到史基浦" },
       { id: "airport", label: "12/24 提前 3 小时到桃园" },
     ],
   },

@@ -25,7 +25,7 @@ export function TaiwanPage() {
             <h2>路线</h2>
             <p>示意图。真实导航用 Google 地图；岛上实际坐高铁，不是开车。</p>
           </div>
-          <a className="btn" href={googleDirUrl(googleRoutePlaces, "driving")} target="_blank" rel="noreferrer">
+          <a className="btn" href={googleDirUrl(googleRoutePlaces, "transit")} target="_blank" rel="noreferrer">
             在 Google 地图打开
           </a>
         </div>

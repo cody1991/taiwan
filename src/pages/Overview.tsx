@@ -25,10 +25,17 @@ function NextCta({ date }: { date: string }) {
       </a>
     );
   }
-  if (date === "2026-12-24" || date === "2026-12-16") {
+  if (date === "2026-12-16") {
     return (
-      <Link className="btn" to={date === "2026-12-16" ? "/flights" : "/taiwan"}>
-        {date === "2026-12-16" ? "看航班" : "看台湾那天"}
+      <Link className="btn" to="/flights">
+        看航班
+      </Link>
+    );
+  }
+  if (date === "2026-12-24") {
+    return (
+      <Link className="btn" to="/flights">
+        看两岸航班
       </Link>
     );
   }
