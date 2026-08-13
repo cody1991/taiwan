@@ -4,10 +4,10 @@ import { googlePlaceUrl } from "../lib/maps";
 export function FoodPage() {
   return (
     <article>
-      <p className="kicker">12/26 – 1/01</p>
+      <p className="kicker">12/17 – 12/23</p>
       <h1>可能吃到的</h1>
       <p className="lede">
-        只写这 8 天顺路能吃的。台北夜市、台南国华街、元旦伴手礼。不按网红店点名，摊位看队伍和轮转。
+        只写这 8 天顺路能吃的。台北夜市、台南国华街、离开前伴手礼。不按网红店点名，摊位看队伍和轮转。
       </p>
 
       {foodGroups.map((group) => (

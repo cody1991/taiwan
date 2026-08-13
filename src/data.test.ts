@@ -11,7 +11,7 @@ describe("itinerary data", () => {
   });
 
   it("points at the next open milestone", () => {
-    expect(nextMilestone("2026-08-13")?.date).toBe("2026-09-26");
+    expect(nextMilestone("2026-08-13")?.date).toBe("2026-09-17");
     expect(nextMilestone("2027-02-20")?.date).toBe("2027-02-06");
   });
 

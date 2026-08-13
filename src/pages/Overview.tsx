@@ -6,9 +6,9 @@ const todayIso = new Date().toISOString().slice(0, 10);
 const permitHref = bookings.find((item) => item.id === "permit")?.href;
 
 const hops = [
-  { code: "AMS", note: "12/25 华航 CI74" },
-  { code: "TPE", note: "12/26–1/02 台北 + 台南" },
-  { code: "SZX", note: "1/2 起南山过年" },
+  { code: "AMS", note: "12/16 华航 CI74" },
+  { code: "TPE", note: "12/17–24 台北 + 台南" },
+  { code: "SZX", note: "12/24 起南山过年" },
 ];
 
 function untilLabel(days: number) {
@@ -25,10 +25,10 @@ function NextCta({ date }: { date: string }) {
       </a>
     );
   }
-  if (date === "2026-12-31" || date === "2027-01-02") {
+  if (date === "2026-12-24" || date === "2026-12-16") {
     return (
-      <Link className="btn" to="/taiwan">
-        看台湾那天
+      <Link className="btn" to={date === "2026-12-16" ? "/flights" : "/taiwan"}>
+        {date === "2026-12-16" ? "看航班" : "看台湾那天"}
       </Link>
     );
   }
@@ -40,8 +40,8 @@ function NextCta({ date }: { date: string }) {
     );
   }
   return (
-    <Link className="btn" to={date <= "2026-12-25" ? "/flights" : "/checklist"}>
-      {date <= "2026-12-25" ? "看航班" : "打开清单"}
+    <Link className="btn" to={date <= "2026-12-16" ? "/flights" : "/checklist"}>
+      {date <= "2026-12-16" ? "看航班" : "打开清单"}
     </Link>
   );
 }
@@ -59,10 +59,10 @@ export function OverviewPage() {
         </svg>
         <div>
           <p className="kicker latin">Netherlands → Taiwan → Nanshan</p>
-          <p className="cover-dates">12.25 — 过年</p>
+          <p className="cover-dates">12.16 — 过年</p>
           <h1>{trip.title}</h1>
           <p className="lede">
-            圣诞从阿姆斯特丹直飞，台湾 8 天只走台北和台南，赶上 101 跨年。1 月 2 日去南山过年。
+            12 月 16 日从阿姆斯特丹直飞，台湾 8 天只走台北和台南。12 月 24 日飞南山，圣诞、跨年、春节都在家。
           </p>
         </div>
       </header>
@@ -82,8 +82,8 @@ export function OverviewPage() {
           <span>台湾天数</span>
         </div>
         <div>
-          <b>101</b>
-          <span>台北跨年</span>
+          <b>台南</b>
+          <span>国华街</span>
         </div>
         <div>
           <b>南山</b>
@@ -154,7 +154,7 @@ export function OverviewPage() {
           ))}
         </tbody>
       </table>
-      <p className="quiet">圣诞去程是大头，10 月锁可改期。</p>
+      <p className="quiet">去程比圣诞当天便宜一截，10 月锁可改期。</p>
     </article>
   );
 }

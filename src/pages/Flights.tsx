@@ -16,7 +16,7 @@ export function FlightsPage() {
           ))}
       </p>
 
-      <h2>去程 AMS → TPE · 12/25</h2>
+      <h2>去程 AMS → TPE · 12/16</h2>
       {outboundFlights.map((item) => (
         <section key={item.name} className={item.preferred ? "block is-pick" : "block"}>
           <h3>
@@ -28,16 +28,16 @@ export function FlightsPage() {
         </section>
       ))}
 
-      <h2>两岸 TPE → SZX · 1/2</h2>
+      <h2>两岸 TPE → SZX · 12/24</h2>
       <section className="block">
         <p>每天有直飞，大约 1 小时 50 分。CI527、ZH9072/9074、CZ3088、B7187，多在中午到下午。</p>
-        <p>订不到就桃园飞香港再过深圳湾。要跨年，仍从桃园出。</p>
+        <p>订不到就桃园飞香港再过深圳湾。从台北出，不要从台南赶当天。平安夜到南山。</p>
       </section>
 
       <h2>订票顺序</h2>
       <ol>
-        <li>10 月：买 12/25 AMS–TPE，选可改期。</li>
-        <li>11 月：买 1/2 TPE–SZX。</li>
+        <li>10 月：买 12/16 AMS–TPE，选可改期。</li>
+        <li>11 月：买 12/24 TPE–SZX。</li>
         <li>两段都买单程。</li>
       </ol>
     </article>

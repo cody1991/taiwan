@@ -1,22 +1,21 @@
 import { googleDirUrl, googlePlaceUrl } from "../lib/maps";
 import { assetUrl, dayTone, mapStops, taiwanDays, weather } from "../data";
 
-const googleRoutePlaces = ["桃园国际机场", "台北车站", "九份老街", "台南车站", "台北101", "桃园国际机场"];
+const googleRoutePlaces = ["桃园国际机场", "台北车站", "九份老街", "台南车站", "台北车站", "桃园国际机场"];
 
 export function TaiwanPage() {
   const markers = mapStops.filter((stop) => stop.id !== "tpe-out");
 
   return (
     <article>
-      <p className="kicker">12/26 – 1/02</p>
+      <p className="kicker">12/17 – 12/24</p>
       <h1>台湾 8 天</h1>
       <p className="lede">
-        台北 3 晚，台南 2 晚，再回台北跨年 2 晚。花莲、高雄、垦丁不排。九份只做一日，下雨改北投。
+        台北 3 晚，台南 2 晚，再回台北 2 晚缓冲。12/24 飞南山。花莲、高雄、垦丁不排。九份只做一日，下雨改北投。
       </p>
 
       <aside className="note">
-        圣诞从 AMS 走，票贵人多，10 月锁可改期。台北换两次酒店，大箱子寄放车站或第一家店。九份当天下午 4
-        点前回来。
+        12/16 从 AMS 走，比圣诞档松。台北换两次酒店，大箱子寄放车站或第一家店。九份当天下午 4 点前回来。
       </aside>
 
       <section className="map-block" id="map">
