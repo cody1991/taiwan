@@ -1,3 +1,9 @@
+export type DayImage = {
+  src: string;
+  alt: string;
+  caption: string;
+};
+
 export type TaiwanDay = {
   date: string;
   weekday: string;
@@ -7,7 +13,19 @@ export type TaiwanDay = {
   body: string;
   tips: string[];
   mapsQuery: string;
+  image?: DayImage;
 };
+
+export function assetUrl(path: string) {
+  return `${import.meta.env.BASE_URL}${path}`;
+}
+
+export function dayTone(day: Pick<TaiwanDay, "city" | "date">) {
+  if (day.date === "2026-12-31") return "nye";
+  if (day.city === "台南") return "tainan";
+  if (day.city === "深圳") return "sz";
+  return "taipei";
+}
 
 export type MapStop = {
   id: string;
@@ -88,6 +106,11 @@ export const taiwanDays: TaiwanDay[] = [
     body: "圣诞当天从阿姆斯特丹起飞，次日约 06:35 到桃园。机场捷运进城，上午睡觉、换零钱、买悠游卡。下午西门或大稻埕，晚上饶河或宁夏夜市。跨年两晚提前锁信义或东区。",
     tips: ["第一天只吃、只睡", "荷兰 12/25、12/26 都是公假"],
     mapsQuery: "台北车站",
+    image: {
+      src: "food/food-oyster-omelette.jpg",
+      alt: "夜市蚵仔煎",
+      caption: "饶河或宁夏 · 蚵仔煎",
+    },
   },
   {
     date: "2026-12-27",
@@ -118,6 +141,11 @@ export const taiwanDays: TaiwanDay[] = [
     body: "早班高铁约 1 小时 40 分。下午安平古堡、安平老街。晚上国华街：牛肉汤、虾仁饭、碗粿。一周行程里，台南是美食高峰，高雄这趟不排。",
     tips: ["晚饭给国华街"],
     mapsQuery: "安平古堡",
+    image: {
+      src: "food/food-beef-soup.jpg",
+      alt: "台南牛肉汤",
+      caption: "国华街 · 牛肉汤",
+    },
   },
   {
     date: "2026-12-30",
@@ -128,6 +156,11 @@ export const taiwanDays: TaiwanDay[] = [
     body: "孔庙、赤崁楼、林百货、神农街。中午再吃一轮，下午咖啡馆。不要去垦丁，落山风大，来回吃掉一天。",
     tips: ["砍垦丁、砍高雄"],
     mapsQuery: "台南孔庙",
+    image: {
+      src: "food/food-wagui.jpg",
+      alt: "台南碗粿",
+      caption: "台南 · 碗粿",
+    },
   },
   {
     date: "2026-12-31",
@@ -148,6 +181,11 @@ export const taiwanDays: TaiwanDay[] = [
     body: "荷兰这天也是公假。晚起，永康街、东门、诚品，买伴手礼。不要排新景点。",
     tips: ["只买东西，不赶路"],
     mapsQuery: "永康街",
+    image: {
+      src: "food/food-pineapple-cake.jpg",
+      alt: "凤梨酥",
+      caption: "伴手礼 · 凤梨酥",
+    },
   },
   {
     date: "2027-01-02",
@@ -168,6 +206,13 @@ export const mapStops: MapStop[] = [
   { id: "tainan", name: "台南", note: "12/29–30 住", lat: 22.9971, lng: 120.2026, x: 88, y: 188 },
   { id: "taipei101", name: "台北 101", note: "12/31 跨年", lat: 25.034, lng: 121.5645, x: 140, y: 66 },
   { id: "tpe-out", name: "桃园机场", note: "1/2 飞深圳", lat: 25.0777, lng: 121.2328, x: 108, y: 58 },
+];
+
+export const tastes = [
+  { src: "food/food-oyster-omelette.jpg", label: "蚵仔煎", place: "台北夜市" },
+  { src: "food/food-beef-soup.jpg", label: "牛肉汤", place: "台南国华街" },
+  { src: "food/food-wagui.jpg", label: "碗粿", place: "台南" },
+  { src: "food/food-pineapple-cake.jpg", label: "凤梨酥", place: "元旦伴手礼" },
 ];
 
 export const weather = [

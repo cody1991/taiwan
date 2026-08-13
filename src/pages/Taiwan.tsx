@@ -1,5 +1,5 @@
 import { googleDirUrl, googlePlaceUrl } from "../lib/maps";
-import { mapStops, taiwanDays, weather } from "../data";
+import { assetUrl, dayTone, mapStops, taiwanDays, weather } from "../data";
 
 const googleRoutePlaces = ["桃园国际机场", "台北车站", "九份老街", "台南车站", "台北101", "桃园国际机场"];
 
@@ -65,20 +65,28 @@ export function TaiwanPage() {
 
       <ol className="days">
         {taiwanDays.map((day) => (
-          <li key={day.date}>
-            <div className="day-meta">
-              <span className="day-city">{day.city}</span>
-              <time dateTime={day.date}>
-                {day.date.slice(5).replace("-", "/")} {day.weekday}
-              </time>
+          <li key={day.date} className={`day is-${dayTone(day)}`}>
+            <div className="day-copy">
+              <div className="day-meta">
+                <span className="day-city">{day.city}</span>
+                <time dateTime={day.date}>
+                  {day.date.slice(5).replace("-", "/")} {day.weekday}
+                </time>
+              </div>
+              <h3>{day.title}</h3>
+              <p>{day.body}</p>
+              <p className="day-stay">{day.stay}</p>
+              <p className="day-tips">{day.tips.join(" · ")}</p>
+              <a href={googlePlaceUrl(day.mapsQuery)} target="_blank" rel="noreferrer">
+                打开地图
+              </a>
             </div>
-            <h3>{day.title}</h3>
-            <p>{day.body}</p>
-            <p className="day-stay">{day.stay}</p>
-            <p className="day-tips">{day.tips.join(" · ")}</p>
-            <a href={googlePlaceUrl(day.mapsQuery)} target="_blank" rel="noreferrer">
-              打开地图
-            </a>
+            {day.image && (
+              <figure>
+                <img src={assetUrl(day.image.src)} alt={day.image.alt} />
+                <figcaption>{day.image.caption}</figcaption>
+              </figure>
+            )}
           </li>
         ))}
       </ol>

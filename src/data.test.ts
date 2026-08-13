@@ -20,6 +20,11 @@ describe("itinerary data", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
+  it("has food pictures on the eating days", () => {
+    const pictured = taiwanDays.filter((day) => day.image);
+    expect(pictured).toHaveLength(4);
+  });
+
   it("has live booking links", () => {
     expect(bookings.length).toBeGreaterThan(3);
     for (const item of bookings) {

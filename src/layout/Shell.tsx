@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { Snow } from "../components/Snow";
 import { trip } from "../data";
 
 const links = [
@@ -16,6 +17,7 @@ export function Shell() {
 
   return (
     <div className="shell">
+      <Snow />
       <a className="skip" href="#content">
         跳到正文
       </a>

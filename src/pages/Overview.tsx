@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
-import { bookings, budget, nextMilestone, phases, trip } from "../data";
+import { assetUrl, bookings, budget, nextMilestone, phases, tastes, trip } from "../data";
 import { daysUntil } from "../lib/dates";
 
 const todayIso = new Date().toISOString().slice(0, 10);
 const permitHref = bookings.find((item) => item.id === "permit")?.href;
+
+const hops = [
+  { code: "AMS", note: "12/25 华航 CI74" },
+  { code: "TPE", note: "12/26–1/02 台北 + 台南" },
+  { code: "SZX", note: "南山过年 · 初一 2/6" },
+  { code: "CAN", note: "2/14 南航直飞 AMS" },
+];
 
 function untilLabel(days: number) {
   if (days > 0) return ` · 还有 ${days} 天`;
@@ -47,12 +54,20 @@ export function OverviewPage() {
 
   return (
     <article>
-      <p className="kicker latin">Netherlands → Taiwan → Nanshan</p>
-      <h1>{trip.title}</h1>
-      <p className="lede">
-        圣诞从阿姆斯特丹直飞，台湾 8 天只走台北和台南，赶上 101 跨年。1 月 2 日去南山过年，2 月 14
-        日广州直飞回来。不经中东停城。
-      </p>
+      <header className="cover">
+        <svg className="cover-island" viewBox="0 0 220 300" aria-hidden="true">
+          <path d="M128 22c22 6 36 28 34 58 0 18-6 36-4 56 3 28 10 48 2 68-10 26-32 44-54 48-22 4-40-8-48-28-10-24-8-52-6-80 2-26 6-50 18-70C82 48 104 26 128 22z" />
+        </svg>
+        <div>
+          <p className="kicker latin">Netherlands → Taiwan → Nanshan</p>
+          <p className="cover-dates">12.25 — 02.14</p>
+          <h1>{trip.title}</h1>
+          <p className="lede">
+            圣诞从阿姆斯特丹直飞，台湾 8 天只走台北和台南，赶上 101 跨年。1 月 2 日去南山过年，2 月 14
+            日广州直飞回来。不经中东停城。
+          </p>
+        </div>
+      </header>
 
       {next && (
         <section className="next">
@@ -73,37 +88,40 @@ export function OverviewPage() {
           <span>台湾天数</span>
         </div>
         <div>
-          <b>广州直飞</b>
-          <span>春节后回程</span>
+          <b>CZ307</b>
+          <span>广州直飞回来</span>
         </div>
       </section>
       <p className="quiet">含南山过年，离开荷兰大约 {trip.awayDays} 天。那不是假期，是住家里、必要时远程。</p>
 
       <h2>路线</h2>
-      <ol className="journey">
-        <li>
-          <strong>AMS</strong>
-          <span>12/25 华航 CI74</span>
-        </li>
-        <li>
-          <strong>TPE</strong>
-          <span>12/26–1/02 台北 + 台南</span>
-        </li>
-        <li>
-          <strong>SZX</strong>
-          <span>南山过年 · 初一 2/6</span>
-        </li>
-        <li>
-          <strong>CAN</strong>
-          <span>2/14 南航直飞 AMS</span>
-        </li>
+      <ol className="path">
+        {hops.map((hop) => (
+          <li key={hop.code}>
+            <strong>{hop.code}</strong>
+            <span>{hop.note}</span>
+          </li>
+        ))}
       </ol>
       <p>
         <Link to="/taiwan">看台湾逐日和地图</Link>
       </p>
 
+      <h2>这趟会吃</h2>
+      <ul className="tastes">
+        {tastes.map((item) => (
+          <li key={item.src}>
+            <Link to="/taiwan">
+              <img src={assetUrl(item.src)} alt="" />
+              <b>{item.label}</b>
+              <span>{item.place}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+
       <h2>阶段</h2>
-      <ol className="phases">
+      <ol className="timeline">
         {phases.map((phase) => (
           <li key={phase.key}>
             <span>{phase.range}</span>
