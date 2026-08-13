@@ -8,8 +8,7 @@ const permitHref = bookings.find((item) => item.id === "permit")?.href;
 const hops = [
   { code: "AMS", note: "12/25 华航 CI74" },
   { code: "TPE", note: "12/26–1/02 台北 + 台南" },
-  { code: "SZX", note: "南山过年 · 初一 2/6" },
-  { code: "CAN", note: "2/14 南航直飞 AMS" },
+  { code: "SZX", note: "1/2 起南山过年" },
 ];
 
 function untilLabel(days: number) {
@@ -41,14 +40,14 @@ function NextCta({ date }: { date: string }) {
     );
   }
   return (
-    <Link className="btn" to={date <= "2026-12-25" || date === trip.returnDate ? "/flights" : "/checklist"}>
-      {date === trip.returnDate ? "看回程" : date <= "2026-12-25" ? "看航班" : "打开清单"}
+    <Link className="btn" to={date <= "2026-12-25" ? "/flights" : "/checklist"}>
+      {date <= "2026-12-25" ? "看航班" : "打开清单"}
     </Link>
   );
 }
 
 export function OverviewPage() {
-  const stillTraveling = todayIso <= trip.returnDate;
+  const stillTraveling = todayIso <= trip.cnyDay;
   const next = stillTraveling ? nextMilestone(todayIso) : undefined;
   const untilNext = next ? daysUntil(next.date, todayIso) : 0;
 
@@ -60,11 +59,10 @@ export function OverviewPage() {
         </svg>
         <div>
           <p className="kicker latin">Netherlands → Taiwan → Nanshan</p>
-          <p className="cover-dates">12.25 — 02.14</p>
+          <p className="cover-dates">12.25 — 过年</p>
           <h1>{trip.title}</h1>
           <p className="lede">
-            圣诞从阿姆斯特丹直飞，台湾 8 天只走台北和台南，赶上 101 跨年。1 月 2 日去南山过年，2 月 14
-            日广州直飞回来。
+            圣诞从阿姆斯特丹直飞，台湾 8 天只走台北和台南，赶上 101 跨年。1 月 2 日去南山过年。
           </p>
         </div>
       </header>
@@ -88,8 +86,8 @@ export function OverviewPage() {
           <span>台北跨年</span>
         </div>
         <div>
-          <b>CZ307</b>
-          <span>广州直飞回来</span>
+          <b>南山</b>
+          <span>过年</span>
         </div>
       </section>
 
@@ -153,7 +151,7 @@ export function OverviewPage() {
           ))}
         </tbody>
       </table>
-      <p className="quiet">圣诞去程和春节回程是大头，10 月就要锁可改期。合计大约 €2,200–4,000。</p>
+      <p className="quiet">圣诞去程是大头，10 月锁可改期。</p>
     </article>
   );
 }

@@ -3,8 +3,8 @@ import { avoid, routeOptions } from "../data";
 export function OptionsPage() {
   return (
     <article>
-      <h1>三种走法</h1>
-      <p className="lede">现在走方案 A。回程广州直飞。想停只停香港。</p>
+      <h1>走法</h1>
+      <p className="lede">现在走方案 A。回荷兰以后再定。</p>
 
       {routeOptions.map((item) => (
         <section key={item.key} className={item.key === "A" ? "block is-pick" : "block"}>

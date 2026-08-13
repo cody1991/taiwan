@@ -57,13 +57,12 @@ export type ChecklistGroup = {
 
 export const milestones = [
   { date: "2026-09-26", label: "入台证窗口打开，约海牙面談" },
-  { date: "2026-10-15", label: "买可改期的 AMS–TPE，并盯春节回程" },
+  { date: "2026-10-15", label: "买可改期的 AMS–TPE" },
   { date: "2026-11-15", label: "锁酒店、高铁、TPE–SZX" },
   { date: "2026-12-25", label: "阿姆斯特丹起飞" },
   { date: "2026-12-31", label: "台北 101 跨年" },
   { date: "2027-01-02", label: "桃园飞深圳" },
   { date: "2027-02-06", label: "春节初一" },
-  { date: "2027-02-14", label: "广州飞回阿姆斯特丹" },
 ];
 
 export function nextMilestone(fromIso: string) {
@@ -72,12 +71,11 @@ export function nextMilestone(fromIso: string) {
 
 export const trip = {
   title: "冬岛行程",
-  subtitle: "荷兰 → 台湾 → 深圳南山 → 荷兰",
+  subtitle: "荷兰 → 台湾 → 深圳南山",
   outbound: "2026-12-25",
   taiwanStart: "2026-12-26",
   taiwanEnd: "2027-01-02",
   shenzhenStart: "2027-01-02",
-  returnDate: "2027-02-14",
   cnyEve: "2027-02-05",
   cnyDay: "2027-02-06",
   permitWindow: "2026-09-26",
@@ -91,9 +89,8 @@ export const phases = [
   { key: "prep", label: "荷兰准备", range: "8/13 – 12/24", note: "入台证、机票、酒店" },
   { key: "go", label: "去程", range: "12/25 – 12/26", note: "华航 CI74 AMS → TPE" },
   { key: "tw", label: "台湾", range: "12/26 – 1/02", note: "台北 + 台南 + 跨年" },
-  { key: "sz", label: "南山", range: "1/02 – 2/14", note: "家人、远程、过年" },
+  { key: "sz", label: "南山", range: "1/02 起", note: "家人、远程、过年" },
   { key: "cny", label: "春节", range: "2/05 – 2/12", note: "除夕 2/5 · 初一 2/6" },
-  { key: "back", label: "回程", range: "2/14", note: "南航 CZ307 CAN → AMS" },
 ];
 
 export const taiwanDays: TaiwanDay[] = [
@@ -235,25 +232,6 @@ export const outboundFlights: FlightOption[] = [
   },
 ];
 
-export const returnFlights: FlightOption[] = [
-  {
-    name: "南航 CZ307 广州直飞",
-    when: "2/14 周日 约 13:00 CAN → 18:35 AMS",
-    detail: "冬春时刻周一、二、四、五、日有班，周六和周三没有。不要订 2/13。南山坐高铁到广州南，门到门预留 4 小时。",
-    preferred: true,
-  },
-  {
-    name: "香港出发",
-    when: "深圳湾口岸 → HKG → AMS",
-    detail: "国泰或荷航直飞，产品往往更舒服。春节口岸排队，当天留 5–6 小时。",
-  },
-  {
-    name: "香港停 1–2 晚",
-    when: "南山过深圳湾，住香港，再 CX/KL 飞 AMS",
-    detail: "这趟唯一值得停的加项。你人在南山，口岸熟，国泰/荷航飞欧洲稳。",
-  },
-];
-
 export const checklist: ChecklistGroup[] = [
   {
     id: "aug-sep",
@@ -263,7 +241,6 @@ export const checklist: ChecklistGroup[] = [
       { id: "leave", label: "向公司确认 12/28–12/31 年假，以及 1–2 月能否南山远程" },
       { id: "job-letter", label: "准备在职证明（全职、职位、入职日期）" },
       { id: "photo", label: "2 寸白底证件照（电子 + 一张纸质）" },
-      { id: "watch-return", label: "开始看 2 月 CAN/HKG → AMS 价钱" },
     ],
   },
   {
@@ -281,7 +258,6 @@ export const checklist: ChecklistGroup[] = [
     title: "10 月",
     items: [
       { id: "ams-tpe", label: "买 12/25 AMS–TPE，选可改期" },
-      { id: "return-ticket", label: "买 2 月回程：优先 CZ307 2/14，其次香港出发" },
       { id: "tpe-hotel-1", label: "订台北前 3 晚（12/26–28）" },
       { id: "nye-hotel", label: "订台北跨年 2 晚（12/31–01/01），信义/东区" },
     ],
@@ -314,8 +290,6 @@ export const checklist: ChecklistGroup[] = [
       { id: "fireworks", label: "12/31 下午睡觉，晚上北侧或东侧看烟火" },
       { id: "souvenir", label: "01/01 买伴手礼" },
       { id: "airport", label: "01/02 提前 3 小时到桃园" },
-      { id: "can-train", label: "确认 2/14 广州高铁 + 白云值机" },
-      { id: "tr-visa", label: "若在香港停：确认回程当天口岸排队，预留 5–6 小时" },
     ],
   },
 ];
@@ -340,29 +314,19 @@ export const routeOptions = [
   {
     key: "A",
     title: "推荐",
-    summary: "台湾 8 天 7 晚 + 南山待到过完年",
+    summary: "台湾 8 天 7 晚 + 南山过年",
     points: [
-      "12/25 AMS → TPE，1/2 飞深圳，2/14 CAN → AMS",
+      "12/25 AMS → TPE，1/2 飞深圳",
       "台北 + 台南 + 跨年；花莲、高雄这趟不排",
     ],
   },
   {
     key: "B",
     title: "短假",
-    summary: "只待台北 5 晚，1 月中回荷兰",
+    summary: "只待台北 5 晚",
     points: [
       "不去台南，跨年前后都在台北",
-      "1/11 左右从广州或香港回阿姆斯特丹",
       "只有深圳也不能远程时才用",
-    ],
-  },
-  {
-    key: "C",
-    title: "锦上添花",
-    summary: "A + 香港停 1–2 晚",
-    points: [
-      "南山过深圳湾住香港，再国泰或荷航飞阿姆斯特丹",
-      "去程不要停，回程才停",
     ],
   },
 ];
@@ -381,29 +345,16 @@ export const bookings = [
     note: "12/25 AMS–TPE",
   },
   {
-    id: "cz",
-    name: "南航",
-    href: "https://www.csair.com",
-    note: "2/14 CAN–AMS",
-  },
-  {
     id: "thsr",
     name: "台湾高铁",
     href: "https://www.thsrc.com.tw",
     note: "12/29 去、12/31 回",
-  },
-  {
-    id: "cx",
-    name: "国泰",
-    href: "https://www.cathaypacific.com",
-    note: "香港出发备选",
   },
 ];
 
 export const budget = [
   { item: "去程 AMS–TPE（圣诞）", range: "€700–1,200" },
   { item: "两岸 TPE–SZX", range: "€80–200" },
-  { item: "回程 CAN–AMS（春节）", range: "€600–1,100" },
   { item: "台湾酒店 7 晚", range: "€500–900" },
   { item: "台湾吃喝交通", range: "€300–500" },
   { item: "入台证", range: "€18" },
@@ -412,6 +363,4 @@ export const budget = [
 export const avoid = [
   "去程就中转玩",
   "12 月底垦丁、花莲",
-  "除夕前后从深圳飞欧洲",
-  "指望深圳直飞阿姆斯特丹",
 ];
