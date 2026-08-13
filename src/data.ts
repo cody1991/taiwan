@@ -250,7 +250,7 @@ export const returnFlights: FlightOption[] = [
   {
     name: "香港停 1–2 晚",
     when: "南山过深圳湾，住香港，再 CX/KL 飞 AMS",
-    detail: "这趟唯一值得停的加项。你人在南山，口岸熟，国泰/荷航飞欧洲稳。不要为了停城去伊斯坦布尔、多哈、迪拜。",
+    detail: "这趟唯一值得停的加项。你人在南山，口岸熟，国泰/荷航飞欧洲稳。",
   },
 ];
 
@@ -263,7 +263,7 @@ export const checklist: ChecklistGroup[] = [
       { id: "leave", label: "向公司确认 12/28–12/31 年假，以及 1–2 月能否南山远程" },
       { id: "job-letter", label: "准备在职证明（全职、职位、入职日期）" },
       { id: "photo", label: "2 寸白底证件照（电子 + 一张纸质）" },
-      { id: "watch-return", label: "开始看 2 月 CAN/HKG → AMS 价钱，不要盯中东中转" },
+      { id: "watch-return", label: "开始看 2 月 CAN/HKG → AMS 价钱" },
     ],
   },
   {
@@ -363,7 +363,6 @@ export const routeOptions = [
     summary: "A + 香港停 1–2 晚",
     points: [
       "南山过深圳湾住香港，再国泰或荷航飞阿姆斯特丹",
-      "不要经伊斯坦布尔、多哈、迪拜停城",
       "去程不要停，回程才停",
     ],
   },
@@ -412,7 +411,6 @@ export const budget = [
 ];
 
 export const avoid = [
-  "经伊斯坦布尔、多哈、迪拜停城",
   "去程就中转玩",
   "12 月底垦丁、花莲",
   "除夕前后从深圳飞欧洲",

@@ -64,7 +64,7 @@ export function OverviewPage() {
           <h1>{trip.title}</h1>
           <p className="lede">
             圣诞从阿姆斯特丹直飞，台湾 8 天只走台北和台南，赶上 101 跨年。1 月 2 日去南山过年，2 月 14
-            日广州直飞回来。不经中东停城。
+            日广州直飞回来。
           </p>
         </div>
       </header>
