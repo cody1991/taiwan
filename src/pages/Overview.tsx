@@ -80,19 +80,18 @@ export function OverviewPage() {
 
       <section className="facts">
         <div>
-          <b>{trip.nlLeaveDays}</b>
-          <span>荷兰年假（工作日）</span>
-        </div>
-        <div>
           <b>{trip.taiwanDays}</b>
           <span>台湾天数</span>
+        </div>
+        <div>
+          <b>101</b>
+          <span>台北跨年</span>
         </div>
         <div>
           <b>CZ307</b>
           <span>广州直飞回来</span>
         </div>
       </section>
-      <p className="quiet">含南山过年，离开荷兰大约 {trip.awayDays} 天。那不是假期，是住家里、必要时远程。</p>
 
       <h2>路线</h2>
       <ol className="path">

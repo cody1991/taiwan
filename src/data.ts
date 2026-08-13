@@ -343,7 +343,6 @@ export const routeOptions = [
     summary: "台湾 8 天 7 晚 + 南山待到过完年",
     points: [
       "12/25 AMS → TPE，1/2 飞深圳，2/14 CAN → AMS",
-      "荷兰年假大约 4 个工作日（12/28–31）",
       "台北 + 台南 + 跨年；花莲、高雄这趟不排",
     ],
   },
