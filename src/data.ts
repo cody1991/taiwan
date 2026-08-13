@@ -326,14 +326,33 @@ export const weather = [
 export const outboundFlights: FlightOption[] = [
   {
     name: "华航 CI74",
-    when: "周三约 10:40 AMS → 次日 06:35 TPE · A350",
-    detail: "首选。12/16 周三走，CI74 周一、三、五、六有班。比圣诞当天便宜，也来得及 12/24 飞深圳。",
+    when: "周三约 11:00 AMS → 次日约 06:15 TPE · A350",
+    detail: "12/16 唯一靠谱的直飞。CI74 周一、三、五、六有班。冬春时刻大约 11:00 起飞、次日清晨到，买之前再对一次。",
     preferred: true,
   },
   {
     name: "荷航 KL807",
-    when: "晚上约 20:05 AMS → 次日下午 TPE",
-    detail: "下午到，第一天废掉。只有华航没位才考虑。",
+    when: "冬春多在周二、四、五、日晚上约 20:05",
+    detail: "12/16 是周三，冬春时刻这天通常没有 KL807。不要当备选。华航没位再看 12/14 周一 CI74，或首尔/法兰克福中转。",
+  },
+];
+
+export const crossStraitFlights: FlightOption[] = [
+  {
+    name: "南航 CZ3088",
+    when: "周四约 13:40 TPE → 15:50 SZX",
+    detail: "12/24 首选。中午前后走，下午到宝安，晚上能到南山过平安夜。冬春周一、三到日有班，周四对得上。",
+    preferred: true,
+  },
+  {
+    name: "华航 CI527",
+    when: "周四约 15:30 TPE → 17:25 SZX",
+    detail: "和去程同一家，SkyTeam。下午走也从容。冬春周一、三、四、五、日有班。",
+  },
+  {
+    name: "立荣 B7187 / 深航 ZH9074",
+    when: "约 16:25 或 17:35 TPE 出",
+    detail: "备选。ZH9074 每天有；B7187 冬春周一、二、四、五、日。再晚平安夜到家就挤。深航 ZH9072 中午那班冬春多半只有周日，12/24 别盯。",
   },
 ];
 

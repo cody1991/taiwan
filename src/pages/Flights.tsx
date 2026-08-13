@@ -1,4 +1,4 @@
-import { bookings, outboundFlights } from "../data";
+import { bookings, crossStraitFlights, outboundFlights } from "../data";
 
 export function FlightsPage() {
   return (
@@ -28,11 +28,18 @@ export function FlightsPage() {
         </section>
       ))}
 
-      <h2>两岸 TPE → SZX · 12/24</h2>
-      <section className="block">
-        <p>每天有直飞，大约 1 小时 50 分。CI527、ZH9072/9074、CZ3088、B7187，多在中午到下午。</p>
-        <p>订不到就桃园飞香港再过深圳湾。从台北出，不要从台南赶当天。平安夜到南山。</p>
-      </section>
+      <h2>两岸 TPE → SZX · 12/24 周四</h2>
+      {crossStraitFlights.map((item) => (
+        <section key={item.name} className={item.preferred ? "block is-pick" : "block"}>
+          <h3>
+            {item.name}
+            {item.preferred ? " · 首选" : ""}
+          </h3>
+          <p>{item.when}</p>
+          <p>{item.detail}</p>
+        </section>
+      ))}
+      <p>订不到直飞再桃园飞香港过深圳湾。从台北出，不要从台南赶当天。预留 3 小时到桃园。</p>
 
       <h2>订票顺序</h2>
       <ol>
