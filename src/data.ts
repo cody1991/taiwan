@@ -113,7 +113,7 @@ export const taiwanDays: TaiwanDay[] = [
     title: "老城 + 故宫",
     stay: "台北",
     body: "故宫周五开馆（周一才休）。上午故宫，下午迪化街、大稻埕、龙山寺。晚上宁夏或华西街。时差没倒过来就故宫改到下午。",
-    tips: ["故宫别排周一"],
+    tips: ["故宫别排周一", "去之前看官网要不要预约"],
     mapsQuery: "国立故宫博物院",
   },
   {
@@ -122,8 +122,8 @@ export const taiwanDays: TaiwanDay[] = [
     city: "台北",
     title: "九份或北投",
     stay: "台北",
-    body: "晴：九份一日，傍晚回台北，不在九份过夜。雨：北投泡汤。不要排阳明山，12 月山顶常起雾封路。晚上收行李，第二天去台南。",
-    tips: ["看天气二选一", "九份过夜太吃天数", "16:00 前离开九份"],
+    body: "晴：从忠孝复兴坐 1062 客运去九份，大约 1 小时，傍晚原路回，不在九份过夜。雨：捷运到北投再换新北投泡汤。不要排阳明山，12 月山顶常起雾封路。晚上收行李，第二天去台南。",
+    tips: ["看天气二选一", "1062 去九份", "16:00 前离开九份"],
     mapsQuery: "九份老街",
   },
   {
@@ -372,7 +372,17 @@ export const lifeTransit = [
   {
     title: "悠游卡",
     detail:
-      "桃园机场捷运站或 7-11、全家买。捷运、公交、部分 YouBike 都能刷。到了再买，荷兰不用提前。再备一点新台币现金，夜市和小摊用。",
+      "桃园机场捷运站或 7-11、全家买。捷运、公交、部分 YouBike 都能刷。到了再买，荷兰不用提前。",
+  },
+  {
+    title: "钱",
+    detail:
+      "落地换或从荷兰带 2000–4000 新台币，够第一天吃和买悠游卡。后面用 Visa / Maestro 在 7-11 ATM 取。店里刷 Visa / Mastercard。微信、支付宝不要当主力，夜市和小摊用现金。",
+  },
+  {
+    title: "电话",
+    detail:
+      "荷兰漫游很贵。手机解锁后出发前办 eSIM，或桃园买中华电信、远传。用 Google 地图。",
   },
   {
     title: "机场捷运",
@@ -385,9 +395,27 @@ export const lifeTransit = [
       "只订两张：12/20 台北→台南，12/22 早班台南→台北。官网或 App，大约出发前 28 天放票。台南高铁站到国华街坐计程车。",
   },
   {
+    title: "九份",
+    detail:
+      "12/19 晴天：捷运忠孝复兴转 1062 客运直达九份老街，大约 1 小时，悠游卡能刷。16:00 前坐回程。雨改北投：淡水信义线到北投，再换新北投。",
+  },
+  {
     title: "市内",
     detail:
-      "不租车。台北靠捷运。台南靠走和计程车（Uber / Line Taxi）。九份当日往返，下午 4 点前回来。手机开 eSIM 或机场买卡，用 Google 地图。",
+      "不租车。台北靠捷运。台南靠走和计程车（Uber / Line Taxi）。",
+  },
+];
+
+export const flightNotes = [
+  {
+    title: "史基浦",
+    detail:
+      "CI74 大约 11:00 飞，国际航班提前 3 小时到，8 点前出现在航站。柜台看当天屏幕，不要凭记忆跑错楼。",
+  },
+  {
+    title: "行李",
+    detail:
+      "华航经济舱通常托运 1 件 23kg，随身大约 7kg，以出票邮件为准。移动电源只能随身。南航 CZ3088 两岸票额度可能更小，买完再对一次。",
   },
 ];
 
@@ -416,6 +444,7 @@ export const checklist: ChecklistGroup[] = [
       { id: "leave", label: "向公司确认 12/16 起去台湾，以及 12 月底起能否南山远程" },
       { id: "job-letter", label: "准备在职证明（全职、职位、入职日期）" },
       { id: "photo", label: "2 寸白底证件照（电子 + 一张纸质）" },
+      { id: "insurance", label: "买旅行险，覆盖医疗和行李" },
     ],
   },
   {
@@ -451,11 +480,13 @@ export const checklist: ChecklistGroup[] = [
     id: "week",
     title: "出发前一周",
     items: [
-      { id: "twd", label: "换一点新台币现金" },
+      { id: "twd", label: "换 2000–4000 新台币，够第一天" },
+      { id: "esim", label: "办 eSIM，或准备落地买卡" },
       { id: "pack", label: "防水外套、可叠穿、防水鞋、欧转美接头；不寄大衣" },
       { id: "print", label: "打印入台证 + 护照复印，手机再存一份 PDF" },
       { id: "residence", label: "荷兰居留卡放随身，不要托运" },
       { id: "onward", label: "准备酒店地址、12/24 离台机票截图，入境台湾备用" },
+      { id: "npm", label: "查故宫 12/18 要不要预约" },
     ],
   },
   {
@@ -463,6 +494,7 @@ export const checklist: ChecklistGroup[] = [
     title: "在路上",
     items: [
       { id: "souvenir", label: "12/22 买伴手礼" },
+      { id: "ams-day", label: "12/16 八点前到史基浦" },
       { id: "airport", label: "12/24 提前 3 小时到桃园" },
     ],
   },
@@ -481,6 +513,7 @@ export const permitFacts = [
   { label: "地点", value: "Van Stolkweg 23, Den Haag" },
   { label: "费用", value: "单次 €18 · 多次 €30，现金，必须本人" },
   { label: "居留", value: "单次证面談当天剩余 ≥ 6 个月；多次证 ≥ 1 年" },
+  { label: "这趟", value: "单次够。12/17 进、12/24 出，不再进台湾" },
   { label: "电话", value: "+31 70 250 3000 分机 114" },
 ];
 

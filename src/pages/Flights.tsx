@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { bookings, crossStraitFlights, outboundFlights } from "../data";
+import { bookings, crossStraitFlights, flightNotes, outboundFlights } from "../data";
 
 export function FlightsPage() {
   return (
@@ -34,6 +34,15 @@ export function FlightsPage() {
           <p>{item.detail}</p>
         </section>
       ))}
+
+      <h2>当天</h2>
+      {flightNotes.map((item) => (
+        <section key={item.title} className="block">
+          <h3>{item.title}</h3>
+          <p>{item.detail}</p>
+        </section>
+      ))}
+
       <p>
         出关入关见 <Link to="/permit">入台证页</Link>。岛上怎么走见 <Link to="/transit">行</Link>。
       </p>
