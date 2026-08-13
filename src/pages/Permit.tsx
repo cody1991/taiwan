@@ -1,4 +1,4 @@
-import { permitFacts, permitSteps } from "../data";
+import { borderNotes, permitFacts, permitSteps } from "../data";
 
 export function PermitPage() {
   return (
@@ -37,7 +37,16 @@ export function PermitPage() {
         <li>取得当地依亲长期居留且有财力证明</li>
         <li>前四款的随行配偶或二亲等内血亲</li>
       </ol>
-      <p>单次证从核发日起 3 个月内要入境。9/26 之后尽早约，不要早于窗口。面談现场不收补交的新居留证。</p>
+      <p>单次证从核发日起 3 个月内要入境。9/17 之后尽早约，不要早于窗口。面談现场不收补交的新居留证。</p>
+
+      <h2>出关入关</h2>
+      <p>这趟是荷兰出、台湾进、再从桃园回深圳。证件只带中国护照 + 荷兰居留 + 入台证，不要混台胞证。</p>
+      {borderNotes.map((item) => (
+        <section key={item.title} className="block">
+          <h3>{item.title}</h3>
+          <p>{item.detail}</p>
+        </section>
+      ))}
     </article>
   );
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { bookings, crossStraitFlights, outboundFlights } from "../data";
 
 export function FlightsPage() {
@@ -39,7 +40,10 @@ export function FlightsPage() {
           <p>{item.detail}</p>
         </section>
       ))}
-      <p>订不到直飞再桃园飞香港过深圳湾。从台北出，不要从台南赶当天。预留 3 小时到桃园。</p>
+      <p>
+        订不到直飞再桃园飞香港过深圳湾。从台北出，不要从台南赶当天。预留 3 小时到桃园。出关入关见{" "}
+        <Link to="/permit">入台证页</Link>。
+      </p>
 
       <h2>订票顺序</h2>
       <ol>
