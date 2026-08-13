@@ -16,7 +16,7 @@ export function TaiwanPage() {
       </p>
 
       <aside className="note">
-        12/16 从 AMS 走，比圣诞档松。台北换两次酒店，大箱子寄放车站或第一家店。九份当天下午 4 点前回来。
+        12/16 从 AMS 走，比圣诞档松。台北换两次酒店，大箱子寄放车站或第一家店。九份当天下午 4 点前回来。12/24 九点半前离开市区。
       </aside>
 
       <section className="map-block" id="map">

@@ -169,7 +169,7 @@ export function OverviewPage() {
           ))}
         </tbody>
       </table>
-      <p className="quiet">去程比圣诞当天便宜一截，10 月锁可改期。</p>
+      <p className="quiet">去程比圣诞当天便宜一截，10 月锁可改期。平安夜两岸票会紧，证有进度就订可退的 CZ3088。</p>
     </article>
   );
 }
