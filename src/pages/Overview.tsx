@@ -108,7 +108,7 @@ export function OverviewPage() {
       <ul className="tastes">
         {tastes.map((item) => (
           <li key={item.src}>
-            <Link to="/taiwan">
+            <Link to="/food">
               <img src={assetUrl(item.src)} alt="" />
               <b>{item.label}</b>
               <span>{item.place}</span>
@@ -116,6 +116,9 @@ export function OverviewPage() {
           </li>
         ))}
       </ul>
+      <p>
+        <Link to="/food">看完整美食</Link>
+      </p>
 
       <h2>阶段</h2>
       <ol className="timeline">

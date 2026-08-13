@@ -205,11 +205,119 @@ export const mapStops: MapStop[] = [
   { id: "tpe-out", name: "桃园机场", note: "1/2 飞深圳", lat: 25.0777, lng: 121.2328, x: 108, y: 58 },
 ];
 
-export const tastes = [
-  { src: "food/food-oyster-omelette.jpg", label: "蚵仔煎", place: "台北夜市" },
-  { src: "food/food-beef-soup.jpg", label: "牛肉汤", place: "台南国华街" },
-  { src: "food/food-wagui.jpg", label: "碗粿", place: "台南" },
-  { src: "food/food-pineapple-cake.jpg", label: "凤梨酥", place: "元旦伴手礼" },
+export type FoodItem = {
+  name: string;
+  where: string;
+  note: string;
+  mapsQuery: string;
+  image?: string;
+};
+
+export type FoodGroup = {
+  id: string;
+  title: string;
+  when: string;
+  items: FoodItem[];
+};
+
+export const foodGroups: FoodGroup[] = [
+  {
+    id: "taipei-night",
+    title: "台北夜市",
+    when: "12/26 抵达当晚 · 12/27 宁夏或华西",
+    items: [
+      {
+        name: "蚵仔煎",
+        where: "饶河或宁夏",
+        note: "冬天也有。蛋、蚵仔、粉浆，淋粉红酱。选轮转快的摊。",
+        mapsQuery: "饶河夜市 蚵仔煎",
+        image: "food/food-oyster-omelette.jpg",
+      },
+      {
+        name: "胡椒饼",
+        where: "饶河、华西一带",
+        note: "炭烤、外脆内汁。一个当夜宵刚好，别当正餐唯一。",
+        mapsQuery: "饶河夜市 胡椒饼",
+      },
+      {
+        name: "卤肉饭",
+        where: "夜市或午餐小店",
+        note: "台北日常。肥瘦分开的比较香。早餐店也有。",
+        mapsQuery: "台北 卤肉饭",
+      },
+      {
+        name: "珍珠奶茶",
+        where: "随处",
+        note: "冬天改热的。少糖少冰，连喝两杯会腻。",
+        mapsQuery: "台北 珍珠奶茶",
+      },
+    ],
+  },
+  {
+    id: "tainan",
+    title: "台南国华街",
+    when: "12/29 晚饭 · 12/30 中午再一轮",
+    items: [
+      {
+        name: "牛肉汤",
+        where: "国华街一带",
+        note: "这趟最该吃的。清汤、温体牛、沾沙茶。早或午比晚上正宗。晚上也有。",
+        mapsQuery: "台南 国华街 牛肉汤",
+        image: "food/food-beef-soup.jpg",
+      },
+      {
+        name: "虾仁饭",
+        where: "国华、保安路",
+        note: "油饭底、虾仁、肉燥。一小碗，可以和牛肉汤连吃。",
+        mapsQuery: "台南 虾仁饭",
+      },
+      {
+        name: "碗粿",
+        where: "台南街头",
+        note: "米浆蒸的，浇肉燥和酱。早餐或下午都合适。",
+        mapsQuery: "台南 碗粿",
+        image: "food/food-wagui.jpg",
+      },
+      {
+        name: "担仔面",
+        where: "国华街、林百货附近",
+        note: "虾汤、一撮面、肉燥。是点心不是大餐。",
+        mapsQuery: "台南 担仔面",
+      },
+    ],
+  },
+  {
+    id: "souvenir",
+    title: "元旦伴手礼",
+    when: "1/01 永康、东门、诚品",
+    items: [
+      {
+        name: "凤梨酥",
+        where: "台北礼盒店",
+        note: "带回国最稳。买当场吃的热的也行。",
+        mapsQuery: "台北 凤梨酥",
+        image: "food/food-pineapple-cake.jpg",
+      },
+      {
+        name: "牛轧糖",
+        where: "礼盒店、机场",
+        note: "不怕压。机场贵一点，城里买够了就别在桃园补。",
+        mapsQuery: "台北 牛轧糖",
+      },
+    ],
+  },
+];
+
+export const tastes = foodGroups.flatMap((group) =>
+  group.items
+    .filter((item) => item.image)
+    .map((item) => ({ src: item.image ?? "", label: item.name, place: item.where })),
+);
+
+export const foodSkip = [
+  "芒果冰：12 月不是季节",
+  "鼎泰丰：跨年前后排队不值",
+  "太阳饼：别为了它去台中",
 ];
 
 export const weather = [

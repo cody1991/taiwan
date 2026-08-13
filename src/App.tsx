@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Shell } from "./layout/Shell";
 import { ChecklistPage } from "./pages/Checklist";
 import { FlightsPage } from "./pages/Flights";
+import { FoodPage } from "./pages/Food";
 import { OptionsPage } from "./pages/Options";
 import { OverviewPage } from "./pages/Overview";
 import { PermitPage } from "./pages/Permit";
@@ -14,6 +15,7 @@ export function App() {
         <Route element={<Shell />}>
           <Route path="/" element={<OverviewPage />} />
           <Route path="/taiwan" element={<TaiwanPage />} />
+          <Route path="/food" element={<FoodPage />} />
           <Route path="/flights" element={<FlightsPage />} />
           <Route path="/permit" element={<PermitPage />} />
           <Route path="/options" element={<OptionsPage />} />

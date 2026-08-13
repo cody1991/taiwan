@@ -342,9 +342,43 @@ a {
   margin-top: 8px;
 }
 
-.tastes span {
+.food-group h2 {
+  margin-bottom: 4px;
+}
+
+.food-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 8px;
+}
+
+.food-card {
+  display: grid;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.food-card.has-pic {
+  grid-template-columns: minmax(0, 1fr) 180px;
+  align-items: start;
+}
+
+.food-card h3 {
+  margin: 0 0 4px;
+}
+
+.food-where {
+  margin: 0 0 8px;
   color: var(--muted);
   font-size: 13px;
+}
+
+.food-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
 }
 
 .cover {
@@ -695,7 +729,8 @@ a {
   .path,
   .tastes,
   .cover,
-  .day {
+  .day,
+  .food-card.has-pic {
     grid-template-columns: 1fr;
   }
 

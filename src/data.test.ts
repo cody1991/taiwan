@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bookings, checklist, nextMilestone, taiwanDays, trip } from "./data";
+import { bookings, checklist, foodGroups, nextMilestone, taiwanDays, trip } from "./data";
 import { isConsecutiveIsoDates } from "./lib/dates";
 
 describe("itinerary data", () => {
@@ -18,6 +18,11 @@ describe("itinerary data", () => {
   it("uses unique checklist ids", () => {
     const ids = checklist.flatMap((group) => group.items.map((item) => item.id));
     expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("lists pictured foods on the food page", () => {
+    const pictured = foodGroups.flatMap((group) => group.items).filter((item) => item.image);
+    expect(pictured).toHaveLength(4);
   });
 
   it("has food pictures on the eating days", () => {
