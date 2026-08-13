@@ -506,7 +506,7 @@ export const checklist: ChecklistGroup[] = [
       { id: "book-slot", label: "移民署系统一开 12 月档期就约海牙" },
       { id: "ns", label: "约上后马上订海牙来回，09:30 前到馆" },
       { id: "upload", label: "线上上传材料" },
-      { id: "interview", label: "面談：护照、居留、预约单、照片、在职证明、现金 €18/€30" },
+      { id: "interview", label: "面談：护照、居留、预约单、照片、在职证明、现金 €18" },
     ],
   },
   {
@@ -563,18 +563,10 @@ export const permitSteps = [
 export const permitFacts = [
   { label: "窗口", value: "只开放未来三个月，约 9/17 可约 12/17 入境" },
   { label: "地点", value: "Van Stolkweg 23, Den Haag" },
-  { label: "费用", value: "单次 €18 · 多次 €30，现金，必须本人" },
-  { label: "居留", value: "单次证面談当天剩余 ≥ 6 个月；多次证 ≥ 1 年" },
-  { label: "这趟", value: "单次够。想一年多次，面談当天居留须剩 ≥ 1 年" },
+  { label: "费用", value: "单次 €18，现金，必须本人" },
+  { label: "居留", value: "面談当天剩余 ≥ 6 个月" },
+  { label: "这趟", value: "单次。12/17 进、12/24 出" },
   { label: "电话", value: "+31 70 250 3000 分机 114" },
-];
-
-export const permitMultiple = [
-  "海牙预约流程一样，表上选多次，现场交 €30。",
-  "面談当天荷兰居留必须还剩 1 年以上，现场不收补交的新卡。",
-  "一年有效，每次停留大约 15 天。这趟 12/17–24 用一次，出桃园证还在。",
-  "多次是方便以后从荷兰再去台湾。12/24 到了深圳，不能拿这张证直接再飞回桃园；从大陆进台湾是另一套手续。",
-  "这 8 天只进一次台湾，单次也够。居留效期够、年内可能还要从荷兰再去，再办多次。",
 ];
 
 export const borderNotes = [
