@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { googleDirUrl, googlePlaceUrl } from "../lib/maps";
-import { assetUrl, dayTone, mapStops, taiwanDays, weather } from "../data";
+import { assetUrl, dayTone, mapStops, taiwanDays } from "../data";
 
 const googleRoutePlaces = ["桃园国际机场", "台北车站", "九份老街", "台南车站", "台北车站", "桃园国际机场"];
 
@@ -90,25 +91,9 @@ export function TaiwanPage() {
         ))}
       </ol>
 
-      <h2>天气和行李</h2>
-      <table className="plain">
-        <thead>
-          <tr>
-            <th>地方</th>
-            <th>体感</th>
-            <th>带什么</th>
-          </tr>
-        </thead>
-        <tbody>
-          {weather.map((row) => (
-            <tr key={row.place}>
-              <td>{row.place}</td>
-              <td>{row.feel}</td>
-              <td>{row.pack}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <p>
+        <Link to="/life">订房、穿衣、交通见衣住行</Link>
+      </p>
     </article>
   );
 }

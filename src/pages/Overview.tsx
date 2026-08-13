@@ -102,6 +102,8 @@ export function OverviewPage() {
       </ol>
       <p>
         <Link to="/taiwan">看台湾逐日和地图</Link>
+        {" · "}
+        <Link to="/life">衣住行</Link>
       </p>
 
       <h2>这趟会吃</h2>

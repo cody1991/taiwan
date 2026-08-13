@@ -5,6 +5,7 @@ import { trip } from "../data";
 const links = [
   { to: "/", label: "总览" },
   { to: "/taiwan", label: "台湾" },
+  { to: "/life", label: "衣住行" },
   { to: "/food", label: "美食" },
   { to: "/flights", label: "航班" },
   { to: "/permit", label: "入台证" },

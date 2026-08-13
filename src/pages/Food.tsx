@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { assetUrl, foodGroups, foodSkip } from "../data";
 import { googlePlaceUrl } from "../lib/maps";
 
@@ -38,6 +39,9 @@ export function FoodPage() {
           <li key={item}>{item}</li>
         ))}
       </ul>
+      <p>
+        <Link to="/life">订房和交通见衣住行</Link>
+      </p>
     </article>
   );
 }

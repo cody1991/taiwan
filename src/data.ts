@@ -318,8 +318,72 @@ export const foodSkip = [
 ];
 
 export const weather = [
-  { place: "台北、九份", feel: "湿冷，可能连阴雨", pack: "防水外套、可叠穿毛衣" },
+  { place: "台北、九份", feel: "湿冷，大约 12–20°C，可能连阴雨", pack: "防水外套、可叠穿毛衣" },
   { place: "台南", feel: "干暖，白天可短袖", pack: "薄外套晚上用" },
+];
+
+export const lifeStay = [
+  {
+    title: "怎么订",
+    detail:
+      "入台证没下来前只订可免费取消。入住用护照，大陆客人备好入台证打印件。姓名和机票、入台证一致。Booking / Agoda 即可，别订只能现场付现、不写护照信息的民宿。",
+  },
+  {
+    title: "台北两段",
+    detail:
+      "12/17–19 三晚，12/22–23 两晚。尽量同一家，大箱子寄放，去台南只带登机箱。选捷运站旁：中山、台北车站、西门方便机场捷运。第一天约 06:15 到，多数酒店 15:00 才入住，选能早放行李的。",
+  },
+  {
+    title: "台南",
+    detail:
+      "12/20–21 两晚，住中西区、国华街步行圈。不要住高铁台南站旁边，去吃饭还要再打车。",
+  },
+  {
+    title: "房间本身",
+    detail:
+      "台湾冬天房间常常没有暖气，只有空调除湿，被子够。电压 110V、美规两脚，荷兰充电器多数双压，带一个欧转美接头。12/24 赶 CZ3088 13:40，最后一晚别订太远，早退房。",
+  },
+];
+
+export const lifeClothes = [
+  {
+    title: "台北",
+    detail:
+      "12 月湿冷，体感比温度低。防水外套一件、毛衣或抓绒叠穿，不从荷兰寄大衣。鞋要防水。室内空调很冷，留一件薄长袖。九份山上更湿，外套别收进包底。",
+  },
+  {
+    title: "台南",
+    detail:
+      "白天可以短袖，晚上加薄外套。两地温差靠叠穿解决，不必两套行李。",
+  },
+  {
+    title: "少带",
+    detail:
+      "正装、厚羽绒服、不能干的帆布鞋都不必。常用药原包装随身。移动电源不托运。",
+  },
+];
+
+export const lifeTransit = [
+  {
+    title: "悠游卡",
+    detail:
+      "桃园机场捷运站或 7-11、全家买。捷运、公交、部分 YouBike 都能刷。到了再买，荷兰不用提前。再备一点新台币现金，夜市和小摊用。",
+  },
+  {
+    title: "机场捷运",
+    detail:
+      "CI74 清晨到桃园，坐机场捷运进台北车站，大约 40 分钟。12/24 去赶 CZ3088，10 点前从市区出发。",
+  },
+  {
+    title: "高铁",
+    detail:
+      "只订两张：12/20 台北→台南，12/22 早班台南→台北。官网或 App，大约出发前 28 天放票。台南高铁站到国华街坐计程车。",
+  },
+  {
+    title: "市内",
+    detail:
+      "不租车。台北靠捷运。台南靠走和计程车（Uber / Line Taxi）。九份当日往返，下午 4 点前回来。手机开 eSIM 或机场买卡，用 Google 地图。",
+  },
 ];
 
 export const outboundFlights: FlightOption[] = [
@@ -364,8 +428,8 @@ export const checklist: ChecklistGroup[] = [
     title: "10 月",
     items: [
       { id: "ams-tpe", label: "买 12/16 AMS–TPE，选可改期" },
-      { id: "tpe-hotel-1", label: "订台北前 3 晚（12/17–19）" },
-      { id: "nye-hotel", label: "订台北后 2 晚（12/22–23）" },
+      { id: "tpe-hotel-1", label: "订台北前 3 晚（12/17–19），可免费取消，捷运旁" },
+      { id: "nye-hotel", label: "订台北后 2 晚（12/22–23），尽量同一家" },
     ],
   },
   {
@@ -373,7 +437,7 @@ export const checklist: ChecklistGroup[] = [
     title: "11 月",
     items: [
       { id: "print-permit", label: "入台证下载打印，备份到手机" },
-      { id: "other-hotels", label: "订台南 2 晚（12/20–21）" },
+      { id: "other-hotels", label: "订台南 2 晚（12/20–21），国华街步行圈" },
       { id: "thsr", label: "高铁：台北→台南（12/20）、台南→台北（12/22 早班）" },
       { id: "tpe-szx", label: "买 12/24 南航 CZ3088 TPE–SZX" },
     ],
@@ -383,7 +447,7 @@ export const checklist: ChecklistGroup[] = [
     title: "出发前一周",
     items: [
       { id: "twd", label: "换一点新台币现金" },
-      { id: "pack", label: "防水外套、可叠穿、不寄大衣" },
+      { id: "pack", label: "防水外套、可叠穿、防水鞋、欧转美接头；不寄大衣" },
       { id: "print", label: "打印入台证 + 护照复印，手机再存一份 PDF" },
       { id: "residence", label: "荷兰居留卡放随身，不要托运" },
       { id: "onward", label: "准备酒店地址、12/24 离台机票截图，入境台湾备用" },
