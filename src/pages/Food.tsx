@@ -6,7 +6,7 @@ export function FoodPage() {
   return (
     <article>
       <p className="kicker">12/17 – 12/23</p>
-      <h1>可能吃到的</h1>
+      <h1>食</h1>
       <p className="lede">
         只写这 8 天顺路能吃的。台北夜市、台南国华街、离开前伴手礼。不按网红店点名，摊位看队伍和轮转。
       </p>
@@ -40,7 +40,9 @@ export function FoodPage() {
         ))}
       </ul>
       <p>
-        <Link to="/life">订房和交通见衣住行</Link>
+        <Link to="/stay">住</Link>
+        {" · "}
+        <Link to="/transit">行</Link>
       </p>
     </article>
   );

@@ -35,7 +35,7 @@ export function FlightsPage() {
         </section>
       ))}
       <p>
-        出关入关见 <Link to="/permit">入台证页</Link>。
+        出关入关见 <Link to="/permit">入台证页</Link>。岛上怎么走见 <Link to="/transit">行</Link>。
       </p>
 
       <h2>订票顺序</h2>

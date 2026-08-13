@@ -92,7 +92,11 @@ export function TaiwanPage() {
       </ol>
 
       <p>
-        <Link to="/life">订房、穿衣、交通见衣住行</Link>
+        <Link to="/stay">住</Link>
+        {" · "}
+        <Link to="/clothes">衣</Link>
+        {" · "}
+        <Link to="/transit">行</Link>
       </p>
     </article>
   );

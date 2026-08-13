@@ -62,7 +62,9 @@ npm run build
 ## 文档
 
 - [台湾逐日行程](docs/taiwan.md)
-- [衣住行](docs/life.md)
+- [衣](docs/clothes.md)
+- [住](docs/stay.md)
+- [行](docs/transit.md)
 - [航班](docs/flights.md)
 - [入台证](docs/entry-permit.md)
 - [预订清单](docs/checklist.md)

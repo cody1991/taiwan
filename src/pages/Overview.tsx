@@ -103,7 +103,13 @@ export function OverviewPage() {
       <p>
         <Link to="/taiwan">看台湾逐日和地图</Link>
         {" · "}
-        <Link to="/life">衣住行</Link>
+        <Link to="/clothes">衣</Link>
+        {" · "}
+        <Link to="/food">食</Link>
+        {" · "}
+        <Link to="/stay">住</Link>
+        {" · "}
+        <Link to="/transit">行</Link>
       </p>
 
       <h2>这趟会吃</h2>
@@ -119,7 +125,7 @@ export function OverviewPage() {
         ))}
       </ul>
       <p>
-        <Link to="/food">看完整美食</Link>
+        <Link to="/food">看完整食</Link>
       </p>
 
       <h2>阶段</h2>
