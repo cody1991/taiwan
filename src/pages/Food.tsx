@@ -8,7 +8,7 @@ export function FoodPage() {
       <p className="kicker">12/17 – 12/23</p>
       <h1>食</h1>
       <p className="lede">
-        只写这 8 天顺路能吃的。台北夜市、台南国华街、离开前伴手礼。不按网红店点名，摊位看队伍和轮转。
+        只写这 8 天顺路能吃的。台北夜市、台南国华街、离开前伴手礼。摊位看队伍和轮转。夜市现金，不用给小费。
       </p>
 
       {foodGroups.map((group) => (

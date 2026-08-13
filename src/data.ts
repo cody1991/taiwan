@@ -230,7 +230,7 @@ export const taiwanDays: TaiwanDay[] = [
     beats: [
       "酒店退房，机场捷运回桃园。核对 CZ3088 航站楼。10 点前离开市区。",
       "两岸按国际手续。多次证出关还在，以后从荷兰可以再进台湾。鲜果肉类不要带。",
-      "约 15:50 到深圳宝安，走中国公民通道。计程车或地铁回南山。",
+      "约 15:50 到深圳宝安，走中国公民通道。地铁 11 号或计程车回南山。地图换高德。",
     ],
     tips: ["预留 3 小时到桃园"],
     mapsQuery: "深圳宝安国际机场",
@@ -366,7 +366,7 @@ export const visitReserve = [
   { name: "龙山寺、大稻埕、九份老街", need: "不用约", note: "走路进去。九份只要赶上 1062 回程。" },
   { name: "北投", need: "不用约", note: "公共浴或汤屋现场排队即可。" },
   { name: "安平古堡、赤崁楼、孔庙、林百货", need: "不用约", note: "古蹟现场买几十块门票或免费。林百货当百货逛。" },
-  { name: "高铁", need: "要订", note: "这是交通不是景点。11 月订 12/20、12/22。" },
+  { name: "高铁", need: "要订", note: "这是交通不是景点。护照号订对号座。11 月订 12/20、12/22。" },
 ];
 
 export const weather = [
@@ -424,17 +424,17 @@ export const lifeTransit = [
   {
     title: "悠游卡",
     detail:
-      "桃园机场捷运站或 7-11、全家买。捷运、公交、部分 YouBike 都能刷。到了再买，荷兰不用提前。",
+      "桃园机场捷运站或 7-11、全家买。捷运、公交、部分 YouBike 都能刷。到了再买，荷兰不用提前。多次证出岛可以不退，下次从荷兰再去还能用。",
   },
   {
     title: "钱",
     detail:
-      "落地换或从荷兰带 2000–4000 新台币，够第一天吃和买悠游卡。后面用 Visa / Maestro 在 7-11 ATM 取。店里刷 Visa / Mastercard。微信、支付宝不要当主力，夜市和小摊用现金。",
+      "落地换或从荷兰带 2000–4000 新台币，够第一天。后面优先 7-11 ATM。Visa / Mastercard 比 Maestro 稳，荷兰 Maestro 在台常被拒。出发前跟银行报台湾和大陆。店里刷卡。微信、支付宝不要当主力，夜市现金。不用给小费。",
   },
   {
     title: "电话",
     detail:
-      "荷兰漫游很贵。手机解锁后出发前办 eSIM，或桃园买中华电信、远传。用 Google 地图。",
+      "荷兰漫游很贵。手机解锁后出发前办 eSIM，或桃园买中华电信、远传。台湾用 Google 地图。到深圳 Google 不好用，改高德，卡切回国内号。",
   },
   {
     title: "机场捷运",
@@ -444,7 +444,7 @@ export const lifeTransit = [
   {
     title: "高铁",
     detail:
-      "只订两张：12/20 台北→台南，12/22 早班台南→台北。官网或 App，大约出发前 28 天放票。台南高铁站到国华街坐计程车。",
+      "只订两张对号座：12/20 台北→台南，12/22 早班台南→台北。官网或 T Express，用护照号。大约出发前 28 天、台湾时间 0 点放票（荷兰大约前一天下午）。车站售票机或窗口用护照取。周日早班人多，不要赌自由座。台南高铁站到国华街坐计程车。",
   },
   {
     title: "九份",
@@ -454,7 +454,7 @@ export const lifeTransit = [
   {
     title: "市内",
     detail:
-      "不租车。台北靠捷运。台南靠走和计程车（Uber / Line Taxi）。",
+      "不租车。台北靠捷运。台南靠走和计程车（Uber / Line Taxi）。街上几乎没垃圾桶，包装捏在包里，便利店再丢。",
   },
 ];
 
@@ -462,7 +462,7 @@ export const flightNotes = [
   {
     title: "史基浦",
     detail:
-      "CI74 大约 11:00 飞，国际航班提前 3 小时到，8 点前出现在航站。柜台看当天屏幕，不要凭记忆跑错楼。",
+      "CI74 大约 11:00 飞，国际航班提前 3 小时到，8 点前出现在航站。柜台看当天屏幕，不要凭记忆跑错楼。过夜航班：登机吃饭，然后睡。第一天台北只补觉。",
   },
   {
     title: "行李",
@@ -494,7 +494,7 @@ export const checklist: ChecklistGroup[] = [
     items: [
       { id: "docs", label: "护照效期 > 6 个月。居留够长，多次已定" },
       { id: "leave", label: "向公司确认 12/16 起去台湾，以及 12 月底起能否南山远程" },
-      { id: "job-letter", label: "准备在职证明（全职、职位、入职日期）" },
+      { id: "job-letter", label: "在职证明：全职、职位、入职日期；不要写调去深圳" },
       { id: "photo", label: "2 寸白底证件照（电子 + 一张纸质）" },
       { id: "insurance", label: "买旅行险，覆盖医疗和行李" },
     ],
@@ -504,9 +504,9 @@ export const checklist: ChecklistGroup[] = [
     title: "9/17 起 · 入台证",
     items: [
       { id: "book-slot", label: "移民署系统一开 12 月档期就约海牙" },
-      { id: "ns", label: "约上后马上订海牙来回，09:30 前到馆" },
+      { id: "ns", label: "约上后订 NS：AMS 中央站城际到 Den Haag Centraal，再电车 World Forum / Madurodam。8 点前离开阿姆斯特丹" },
       { id: "upload", label: "线上上传材料" },
-      { id: "interview", label: "面談：护照、居留、预约单、照片、在职证明、现金 €30" },
+      { id: "interview", label: "面談：护照、居留、预约单、照片、在职证明、刚好 €30 现金" },
     ],
   },
   {
@@ -524,7 +524,7 @@ export const checklist: ChecklistGroup[] = [
     items: [
       { id: "print-permit", label: "入台证下载打印，备份到手机" },
       { id: "other-hotels", label: "订台南 2 晚（12/20–21），国华街步行圈" },
-      { id: "thsr", label: "高铁：台北→台南（12/20）、台南→台北（12/22 早班）" },
+      { id: "thsr", label: "高铁对号座：护照号订 12/20、12/22 早班，车站用护照取" },
       { id: "tpe-szx", label: "买 12/24 南航 CZ3088 TPE–SZX" },
     ],
   },
@@ -533,7 +533,7 @@ export const checklist: ChecklistGroup[] = [
     title: "出发前一周",
     items: [
       { id: "twd", label: "换 2000–4000 新台币，够第一天" },
-      { id: "esim", label: "办 eSIM，或准备落地买卡" },
+      { id: "esim", label: "办台湾 eSIM；到深圳切回国内号" },
       { id: "pack", label: "防水外套、可叠穿、防水鞋、欧转美接头；不寄大衣" },
       { id: "print", label: "打印入台证 + 护照复印，手机再存一份 PDF" },
       { id: "residence", label: "荷兰居留卡放随身，不要托运" },
@@ -553,17 +553,35 @@ export const checklist: ChecklistGroup[] = [
 ];
 
 export const permitSteps = [
-  "线上填表，上传护照、居留、证件照、在职证明",
+  "线上填表，上传护照、居留、证件照、在职证明（全职、职位、入职日期；不要写调去深圳）",
   "约海牙面談日期",
-  "打印预约确认单，上午 09:30–12:00 当面缴费核验",
+  "打印预约确认单，上午 09:30–12:00 当面缴费核验，带刚好 €30",
   "审核约 4 周，补件会更久",
   "核准后自行下载打印，入境台湾出示",
+];
+
+export const permitHague = [
+  {
+    title: "怎么去",
+    detail:
+      "阿姆斯特丹中央站城际到 Den Haag Centraal，约 50 分钟。再坐电车到 World Forum 或 Madurodam，步行几分钟到 Van Stolkweg 23。别开车、别踩点。09:30 开门，建议 8 点前离开阿姆斯特丹。约上立刻用 NS App 订来回。",
+  },
+  {
+    title: "带什么",
+    detail:
+      "护照、居留正本、预约单打印件、证件照、在职证明正本、刚好 €30 现金。现场不收补交。",
+  },
+  {
+    title: "面談说什么",
+    detail:
+      "荷兰工作，台湾玩一周，12/24 去深圳过年，之后回荷兰上班。多次证是以后从荷兰再去台湾。不要说去了就不回荷兰。",
+  },
 ];
 
 export const permitFacts = [
   { label: "窗口", value: "只开放未来三个月，约 9/17 可约 12/17 入境" },
   { label: "地点", value: "Van Stolkweg 23, Den Haag" },
-  { label: "费用", value: "多次 €30，现金，必须本人" },
+  { label: "费用", value: "多次 €30，现金，尽量刚好，必须本人" },
   { label: "居留", value: "够长，多次硬门槛过了" },
   { label: "这趟", value: "差 €12，办一年多次。12 月用一次，以后从荷兰还能再去" },
   { label: "电话", value: "+31 70 250 3000 分机 114" },
@@ -638,6 +656,12 @@ export const bookings = [
     name: "台湾高铁",
     href: "https://www.thsrc.com.tw",
     note: "12/20 去、12/22 回",
+  },
+  {
+    id: "ns-train",
+    name: "NS",
+    href: "https://www.ns.nl",
+    note: "海牙面談来回",
   },
   {
     id: "agoda",

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bookings, checklist, foodGroups, nextMilestone, taiwanDays, trip } from "./data";
+import { bookings, checklist, foodGroups, nextMilestone, permitHague, taiwanDays, trip } from "./data";
 import { isConsecutiveIsoDates } from "./lib/dates";
 
 describe("itinerary data", () => {
@@ -41,5 +41,9 @@ describe("itinerary data", () => {
     for (const item of bookings) {
       expect(item.href.startsWith("https://")).toBe(true);
     }
+  });
+
+  it("covers Hague day logistics", () => {
+    expect(permitHague.map((item) => item.title)).toEqual(["怎么去", "带什么", "面談说什么"]);
   });
 });
