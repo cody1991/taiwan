@@ -492,7 +492,7 @@ export const checklist: ChecklistGroup[] = [
     id: "aug-sep",
     title: "8–9 月",
     items: [
-      { id: "docs", label: "护照效期、荷兰居留面談当天须剩 ≥ 1 年（多次证）" },
+      { id: "docs", label: "护照效期 > 6 个月。居留够长，多次已定" },
       { id: "leave", label: "向公司确认 12/16 起去台湾，以及 12 月底起能否南山远程" },
       { id: "job-letter", label: "准备在职证明（全职、职位、入职日期）" },
       { id: "photo", label: "2 寸白底证件照（电子 + 一张纸质）" },
@@ -564,8 +564,8 @@ export const permitFacts = [
   { label: "窗口", value: "只开放未来三个月，约 9/17 可约 12/17 入境" },
   { label: "地点", value: "Van Stolkweg 23, Den Haag" },
   { label: "费用", value: "多次 €30，现金，必须本人" },
-  { label: "居留", value: "面談当天剩余 ≥ 1 年" },
-  { label: "这趟", value: "一年多次。12 月用一次，以后从荷兰还能再去" },
+  { label: "居留", value: "够长，多次硬门槛过了" },
+  { label: "这趟", value: "差 €12，办一年多次。12 月用一次，以后从荷兰还能再去" },
   { label: "电话", value: "+31 70 250 3000 分机 114" },
 ];
 
