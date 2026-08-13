@@ -171,7 +171,7 @@ body::before {
   .route-map-bar {
     flex-direction: column;
   }
-}
+
   .route-ribbon {
     grid-template-columns: 1fr 1fr;
   }
