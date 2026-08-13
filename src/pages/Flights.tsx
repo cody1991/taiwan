@@ -5,11 +5,11 @@ export function FlightsPage() {
   return (
     <article>
       <h1>航班</h1>
-      <p className="lede">两段分开买。不要一张票串荷兰–台湾–深圳。</p>
+      <p className="lede">两段分开买。去程华航 CI74，回深圳南航 CZ3088。</p>
 
       <p className="links-inline">
         {bookings
-          .filter((item) => item.id !== "permit" && item.id !== "thsr")
+          .filter((item) => item.id === "ci" || item.id === "cz")
           .map((item) => (
             <a key={item.id} href={item.href} target="_blank" rel="noreferrer">
               {item.name}
@@ -19,36 +19,29 @@ export function FlightsPage() {
 
       <h2>去程 AMS → TPE · 12/16</h2>
       {outboundFlights.map((item) => (
-        <section key={item.name} className={item.preferred ? "block is-pick" : "block"}>
-          <h3>
-            {item.name}
-            {item.preferred ? " · 首选" : ""}
-          </h3>
+        <section key={item.name} className="block is-pick">
+          <h3>{item.name}</h3>
           <p>{item.when}</p>
           <p>{item.detail}</p>
         </section>
       ))}
 
-      <h2>两岸 TPE → SZX · 12/24 周四</h2>
+      <h2>两岸 TPE → SZX · 12/24</h2>
       {crossStraitFlights.map((item) => (
-        <section key={item.name} className={item.preferred ? "block is-pick" : "block"}>
-          <h3>
-            {item.name}
-            {item.preferred ? " · 首选" : ""}
-          </h3>
+        <section key={item.name} className="block is-pick">
+          <h3>{item.name}</h3>
           <p>{item.when}</p>
           <p>{item.detail}</p>
         </section>
       ))}
       <p>
-        订不到直飞再桃园飞香港过深圳湾。从台北出，不要从台南赶当天。预留 3 小时到桃园。出关入关见{" "}
-        <Link to="/permit">入台证页</Link>。
+        出关入关见 <Link to="/permit">入台证页</Link>。
       </p>
 
       <h2>订票顺序</h2>
       <ol>
-        <li>10 月：买 12/16 AMS–TPE，选可改期。</li>
-        <li>11 月：买 12/24 TPE–SZX。</li>
+        <li>10 月：买 12/16 CI74，选可改期。</li>
+        <li>11 月：买 12/24 CZ3088。</li>
         <li>两段都买单程。</li>
       </ol>
     </article>

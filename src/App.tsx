@@ -3,7 +3,6 @@ import { Shell } from "./layout/Shell";
 import { ChecklistPage } from "./pages/Checklist";
 import { FlightsPage } from "./pages/Flights";
 import { FoodPage } from "./pages/Food";
-import { OptionsPage } from "./pages/Options";
 import { OverviewPage } from "./pages/Overview";
 import { PermitPage } from "./pages/Permit";
 import { TaiwanPage } from "./pages/Taiwan";
@@ -18,7 +17,6 @@ export function App() {
           <Route path="/food" element={<FoodPage />} />
           <Route path="/flights" element={<FlightsPage />} />
           <Route path="/permit" element={<PermitPage />} />
-          <Route path="/options" element={<OptionsPage />} />
           <Route path="/checklist" element={<ChecklistPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

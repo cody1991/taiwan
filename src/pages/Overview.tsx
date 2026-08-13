@@ -34,8 +34,8 @@ function NextCta({ date }: { date: string }) {
   }
   if (date === "2027-02-06") {
     return (
-      <Link className="btn" to="/options">
-        看走法
+      <Link className="btn" to="/checklist">
+        打开清单
       </Link>
     );
   }

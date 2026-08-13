@@ -8,7 +8,6 @@ const links = [
   { to: "/food", label: "美食" },
   { to: "/flights", label: "航班" },
   { to: "/permit", label: "入台证" },
-  { to: "/options", label: "走法" },
   { to: "/checklist", label: "清单" },
 ];
 

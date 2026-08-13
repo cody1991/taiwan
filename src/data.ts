@@ -40,7 +40,6 @@ export type FlightOption = {
   name: string;
   when: string;
   detail: string;
-  preferred?: boolean;
 };
 
 export type ChecklistItem = {
@@ -327,13 +326,7 @@ export const outboundFlights: FlightOption[] = [
   {
     name: "华航 CI74",
     when: "周三约 11:00 AMS → 次日约 06:15 TPE · A350",
-    detail: "12/16 唯一靠谱的直飞。CI74 周一、三、五、六有班。冬春时刻大约 11:00 起飞、次日清晨到，买之前再对一次。",
-    preferred: true,
-  },
-  {
-    name: "荷航 KL807",
-    when: "冬春多在周二、四、五、日晚上约 20:05",
-    detail: "12/16 是周三，冬春时刻这天通常没有 KL807。不要当备选。华航没位再看 12/14 周一 CI74，或首尔/法兰克福中转。",
+    detail: "12/16 直飞。冬春时刻大约 11:00 起飞、次日清晨到，买之前再对一次。",
   },
 ];
 
@@ -341,18 +334,7 @@ export const crossStraitFlights: FlightOption[] = [
   {
     name: "南航 CZ3088",
     when: "周四约 13:40 TPE → 15:50 SZX",
-    detail: "12/24 首选。中午前后走，下午到宝安，晚上能到南山过平安夜。冬春周一、三到日有班，周四对得上。",
-    preferred: true,
-  },
-  {
-    name: "华航 CI527",
-    when: "周四约 15:30 TPE → 17:25 SZX",
-    detail: "和去程同一家，SkyTeam。下午走也从容。冬春周一、三、四、五、日有班。",
-  },
-  {
-    name: "立荣 B7187 / 深航 ZH9074",
-    when: "约 16:25 或 17:35 TPE 出",
-    detail: "备选。ZH9074 每天有；B7187 冬春周一、二、四、五、日。再晚平安夜到家就挤。深航 ZH9072 中午那班冬春多半只有周日，12/24 别盯。",
+    detail: "12/24 中午走，下午到宝安，晚上在南山过平安夜。从台北出，预留 3 小时到桃园。",
   },
 ];
 
@@ -393,7 +375,7 @@ export const checklist: ChecklistGroup[] = [
       { id: "print-permit", label: "入台证下载打印，备份到手机" },
       { id: "other-hotels", label: "订台南 2 晚（12/20–21）" },
       { id: "thsr", label: "高铁：台北→台南（12/20）、台南→台北（12/22 早班）" },
-      { id: "tpe-szx", label: "12/24 TPE–SZX" },
+      { id: "tpe-szx", label: "买 12/24 南航 CZ3088 TPE–SZX" },
     ],
   },
   {
@@ -478,27 +460,6 @@ export const packNo = [
   "新台币大额带回大陆（不好用，出台湾前花掉）",
 ];
 
-export const routeOptions = [
-  {
-    key: "A",
-    title: "当前",
-    summary: "台湾 8 天 7 晚 + 12/24 回南山过年",
-    points: [
-      "12/16 AMS → TPE，12/24 飞深圳",
-      "台北 3 晚 + 台南 2 晚 + 再回台北 2 晚；花莲、高雄不排",
-    ],
-  },
-  {
-    key: "B",
-    title: "更早离开",
-    summary: "12/14 走，12/20 飞深圳，台湾 6 天",
-    points: [
-      "台北 3 晚 + 台南 2 晚，没有回台北缓冲",
-      "只有必须 12/20 前到南山才用",
-    ],
-  },
-];
-
 export const bookings = [
   {
     id: "permit",
@@ -510,7 +471,13 @@ export const bookings = [
     id: "ci",
     name: "华航",
     href: "https://www.china-airlines.com",
-    note: "12/16 AMS–TPE",
+    note: "12/16 CI74 AMS–TPE",
+  },
+  {
+    id: "cz",
+    name: "南航",
+    href: "https://www.csair.com",
+    note: "12/24 CZ3088 TPE–SZX",
   },
   {
     id: "thsr",
@@ -526,9 +493,4 @@ export const budget = [
   { item: "台湾酒店 7 晚", range: "€450–800" },
   { item: "台湾吃喝交通", range: "€300–500" },
   { item: "入台证", range: "€18" },
-];
-
-export const avoid = [
-  "去程就中转玩",
-  "12 月垦丁、花莲",
 ];
