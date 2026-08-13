@@ -1,4 +1,4 @@
-import { borderNotes, packNo, packOk, permitFacts, permitSteps } from "../data";
+import { borderNotes, packNo, packOk, permitFacts, permitMultiple, permitSteps } from "../data";
 
 export function PermitPage() {
   return (
@@ -37,7 +37,14 @@ export function PermitPage() {
         <li>取得当地依亲长期居留且有财力证明</li>
         <li>前四款的随行配偶或二亲等内血亲</li>
       </ol>
-      <p>这趟单次够：12/17 进、12/24 出。单次证从核发日起 3 个月内要入境。9/17 之后尽早约，不要早于窗口。面談现场不收补交的新居留证。</p>
+      <p>单次证从核发日起 3 个月内要入境。9/17 之后尽早约，不要早于窗口。面談现场不收补交的新居留证。</p>
+
+      <h2>一年多次</h2>
+      <ul>
+        {permitMultiple.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
 
       <h2>出关入关</h2>
       <p>这趟是荷兰出、台湾进、再从桃园回深圳。证件只带中国护照 + 荷兰居留 + 入台证，不要混台胞证。</p>
