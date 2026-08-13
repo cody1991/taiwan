@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { googleDirUrl, googlePlaceUrl } from "../lib/maps";
-import { assetUrl, dayTone, mapStops, taiwanDays } from "../data";
+import { assetUrl, dayTone, mapStops, taiwanDays, visitReserve } from "../data";
 
 const googleRoutePlaces = ["桃园国际机场", "台北车站", "九份老街", "高铁台南站", "台北车站", "桃园国际机场"];
 
@@ -95,6 +95,26 @@ export function TaiwanPage() {
           </li>
         ))}
       </ol>
+
+      <h2>要不要预约</h2>
+      <table className="plain">
+        <thead>
+          <tr>
+            <th>点</th>
+            <th>预约</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          {visitReserve.map((row) => (
+            <tr key={row.name}>
+              <td>{row.name}</td>
+              <td>{row.need}</td>
+              <td>{row.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       <p>
         <Link to="/stay">住</Link>
