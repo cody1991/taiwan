@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { checklist, nextMilestone, taiwanDays, trip } from "./data";
+import { bookings, checklist, nextMilestone, taiwanDays, trip } from "./data";
 import { isConsecutiveIsoDates } from "./lib/dates";
 
 describe("itinerary data", () => {
@@ -18,5 +18,12 @@ describe("itinerary data", () => {
   it("uses unique checklist ids", () => {
     const ids = checklist.flatMap((group) => group.items.map((item) => item.id));
     expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("has live booking links", () => {
+    expect(bookings.length).toBeGreaterThan(3);
+    for (const item of bookings) {
+      expect(item.href.startsWith("https://")).toBe(true);
+    }
   });
 });

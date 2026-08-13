@@ -1,102 +1,107 @@
-import { Alert, Button, Collapse, Table, Tag, Timeline, Typography } from "antd";
-import { ExportOutlined } from "@ant-design/icons";
-import { RouteMap } from "../components/RouteMap";
-import { taiwanDays, weather } from "../data";
-import { googlePlaceUrl } from "../lib/maps";
+import { googleDirUrl, googlePlaceUrl } from "../lib/maps";
+import { mapStops, taiwanDays, weather } from "../data";
+
+const googleRoutePlaces = ["桃园国际机场", "台北车站", "九份老街", "台南车站", "台北101", "桃园国际机场"];
 
 export function TaiwanPage() {
+  const markers = mapStops.filter((stop) => stop.id !== "tpe-out");
+
   return (
-    <div className="page">
-      <Typography.Title className="display" level={1}>
-        台湾 8 天
-      </Typography.Title>
-      <Typography.Paragraph>
-        8 天 7 晚：台北 3 晚 → 台南 2 晚 → 台北跨年 2 晚。花莲、高雄、垦丁这趟都不排。九份只做一日，下雨改北投。
-      </Typography.Paragraph>
+    <article>
+      <p className="kicker">12/26 – 1/02</p>
+      <h1>台湾 8 天</h1>
+      <p className="lede">
+        台北 3 晚，台南 2 晚，再回台北跨年 2 晚。花莲、高雄、垦丁不排。九份只做一日，下雨改北投。
+      </p>
 
-      <Alert
-        type="info"
-        showIcon
-        style={{ marginBottom: 20 }}
-        message="两处值得提前想"
-        description="圣诞从 AMS 走，票贵人多，10 月就要锁可改期。台北会换两次酒店（去台南前一次、跨年信义一次），大箱子可以寄放台北车站或第一家酒店。"
-      />
+      <aside className="note">
+        圣诞从 AMS 走，票贵人多，10 月锁可改期。台北换两次酒店，大箱子寄放车站或第一家店。九份当天下午 4
+        点前回来。
+      </aside>
 
-      <RouteMap />
-
-      <Timeline
-        items={taiwanDays.map((day) => ({
-          color: day.date === "2026-12-31" ? "#b4451e" : "#1f4b55",
-          children: (
-            <div className="day-card">
-              <div>
-                <div className="day-city">{day.city}</div>
-                <div className="day-date">
-                  {day.date.slice(5).replace("-", "/")}
-                  <span style={{ fontSize: 14, marginLeft: 6 }}>{day.weekday}</span>
-                </div>
-              </div>
-              <div>
-                <Typography.Title level={4} style={{ margin: "0 0 8px" }}>
-                  {day.title}
-                </Typography.Title>
-                <Typography.Paragraph style={{ marginBottom: 8 }}>{day.body}</Typography.Paragraph>
+      <section className="map-block" id="map">
+        <div className="map-head">
+          <div>
+            <h2>路线</h2>
+            <p>示意图。真实导航用 Google 地图；岛上实际坐高铁，不是开车。</p>
+          </div>
+          <a className="btn" href={googleDirUrl(googleRoutePlaces, "driving")} target="_blank" rel="noreferrer">
+            在 Google 地图打开
+          </a>
+        </div>
+        <div className="map-body">
+          <svg viewBox="0 0 220 300" role="img" aria-label="台湾行程示意图">
+            <path
+              className="island"
+              d="M128 22c22 6 36 28 34 58 0 18-6 36-4 56 3 28 10 48 2 68-10 26-32 44-54 48-22 4-40-8-48-28-10-24-8-52-6-80 2-26 6-50 18-70C82 48 104 26 128 22z"
+            />
+            <polyline
+              className="route-line"
+              points={mapStops.map((stop) => `${stop.x},${stop.y}`).join(" ")}
+              fill="none"
+            />
+            {markers.map((stop, index) => (
+              <g key={stop.id}>
+                <circle className="stop-dot" cx={stop.x} cy={stop.y} r="8" />
+                <text className="stop-index" x={stop.x} y={stop.y + 4} textAnchor="middle">
+                  {index + 1}
+                </text>
+              </g>
+            ))}
+          </svg>
+          <ol className="map-legend">
+            {markers.map((stop, index) => (
+              <li key={stop.id}>
+                <b>{index + 1}</b>
                 <div>
-                  <Tag>{day.stay}</Tag>
-                  {day.tips.map((tip) => (
-                    <Tag key={tip} color="orange">
-                      {tip}
-                    </Tag>
-                  ))}
-                  <Button
-                    type="link"
-                    size="small"
-                    icon={<ExportOutlined />}
-                    href={googlePlaceUrl(day.mapsQuery)}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ paddingInline: 4 }}
-                  >
-                    地图
-                  </Button>
+                  {stop.name}
+                  <span>{stop.note}</span>
                 </div>
-              </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <ol className="days">
+        {taiwanDays.map((day) => (
+          <li key={day.date}>
+            <div className="day-meta">
+              <span className="day-city">{day.city}</span>
+              <time dateTime={day.date}>
+                {day.date.slice(5).replace("-", "/")} {day.weekday}
+              </time>
             </div>
-          ),
-        }))}
-      />
+            <h3>{day.title}</h3>
+            <p>{day.body}</p>
+            <p className="day-stay">{day.stay}</p>
+            <p className="day-tips">{day.tips.join(" · ")}</p>
+            <a href={googlePlaceUrl(day.mapsQuery)} target="_blank" rel="noreferrer">
+              打开地图
+            </a>
+          </li>
+        ))}
+      </ol>
 
-      <Typography.Title level={3} className="display">
-        天气和行李
-      </Typography.Title>
-      <Table
-        pagination={false}
-        rowKey="place"
-        dataSource={weather}
-        columns={[
-          { title: "地方", dataIndex: "place" },
-          { title: "体感", dataIndex: "feel" },
-          { title: "带什么", dataIndex: "pack" },
-        ]}
-      />
-
-      <Collapse
-        style={{ marginTop: 24 }}
-        items={[
-          {
-            key: "transport",
-            label: "交通怎么订",
-            children: (
-              <ul>
-                <li>桃园 → 台北：机场捷运</li>
-                <li>台北市内：悠游卡 + 捷运</li>
-                <li>台北 → 台南、台南 → 台北：高铁。12/31 早班必须锁</li>
-                <li>九份：台北出发一日，不订民宿，下午 4 点前回来</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-    </div>
+      <h2>天气和行李</h2>
+      <table className="plain">
+        <thead>
+          <tr>
+            <th>地方</th>
+            <th>体感</th>
+            <th>带什么</th>
+          </tr>
+        </thead>
+        <tbody>
+          {weather.map((row) => (
+            <tr key={row.place}>
+              <td>{row.place}</td>
+              <td>{row.feel}</td>
+              <td>{row.pack}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </article>
   );
 }

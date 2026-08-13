@@ -70,7 +70,7 @@ export const trip = {
 };
 
 export const phases = [
-  { key: "prep", label: "荷兰准备", range: "8/13 – 12/18", note: "入台证、机票、酒店" },
+  { key: "prep", label: "荷兰准备", range: "8/13 – 12/24", note: "入台证、机票、酒店" },
   { key: "go", label: "去程", range: "12/25 – 12/26", note: "华航 CI74 AMS → TPE" },
   { key: "tw", label: "台湾", range: "12/26 – 1/02", note: "台北 + 台南 + 跨年" },
   { key: "sz", label: "南山", range: "1/02 – 2/14", note: "家人、远程、过年" },
@@ -322,4 +322,54 @@ export const routeOptions = [
       "去程不要停，回程才停",
     ],
   },
+];
+
+export const bookings = [
+  {
+    id: "permit",
+    name: "入台证",
+    href: "https://www.roc-taiwan.org/nl/post/24535.html",
+    note: "海牙代表处 · 9/26 起约",
+  },
+  {
+    id: "ci",
+    name: "华航",
+    href: "https://www.china-airlines.com",
+    note: "12/25 AMS–TPE",
+  },
+  {
+    id: "cz",
+    name: "南航",
+    href: "https://www.csair.com",
+    note: "2/14 CAN–AMS",
+  },
+  {
+    id: "thsr",
+    name: "台湾高铁",
+    href: "https://www.thsrc.com.tw",
+    note: "12/29 去、12/31 回",
+  },
+  {
+    id: "cx",
+    name: "国泰",
+    href: "https://www.cathaypacific.com",
+    note: "香港出发备选",
+  },
+];
+
+export const budget = [
+  { item: "去程 AMS–TPE（圣诞）", range: "€700–1,200" },
+  { item: "两岸 TPE–SZX", range: "€80–200" },
+  { item: "回程 CAN–AMS（春节）", range: "€600–1,100" },
+  { item: "台湾酒店 7 晚", range: "€500–900" },
+  { item: "台湾吃喝交通", range: "€300–500" },
+  { item: "入台证", range: "€18" },
+];
+
+export const avoid = [
+  "经伊斯坦布尔、多哈、迪拜停城",
+  "去程就中转玩",
+  "12 月底垦丁、花莲",
+  "除夕前后从深圳飞欧洲",
+  "指望深圳直飞阿姆斯特丹",
 ];

@@ -1,5 +1,7 @@
 # 荷兰 → 台湾 → 深圳南山 → 荷兰
 
+线上站点用 `BrowserRouter`，地址是 `/taiwan/`、`/taiwan/taiwan` 这种，不再带 `#`。
+
 本地查看：
 
 ```bash

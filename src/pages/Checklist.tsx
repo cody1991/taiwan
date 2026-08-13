@@ -1,4 +1,3 @@
-import { Button, Checkbox, Collapse, Space, Typography } from "antd";
 import { useMemo, useState } from "react";
 import { checklist } from "../data";
 import { loadChecked, saveChecked } from "../lib/checklist";
@@ -16,46 +15,40 @@ export function ChecklistPage() {
     saveChecked(next);
   }
 
-  function reset() {
-    setChecked([]);
-    saveChecked([]);
-  }
-
   return (
-    <div className="page">
-      <Typography.Title className="display" level={1}>
-        预订清单
-      </Typography.Title>
-      <Space style={{ marginBottom: 16 }}>
-        <Typography.Text>
-          已完成 {checked.length} / {allIds.length}
-        </Typography.Text>
-        <Button size="small" onClick={reset}>
-          清空
-        </Button>
-      </Space>
-      <Typography.Paragraph type="secondary">勾选会留在这台浏览器里。</Typography.Paragraph>
+    <article>
+      <h1>预订清单</h1>
+      <p className="lede">
+        已完成 {checked.length} / {allIds.length}。勾选留在这台浏览器。
+      </p>
+      <button type="button" className="text-btn" onClick={() => { setChecked([]); saveChecked([]); }}>
+        清空
+      </button>
 
-      <Collapse
-        defaultActiveKey={checklist.map((group) => group.id)}
-        items={checklist.map((group) => ({
-          key: group.id,
-          label: `${group.title} · ${group.items.filter((item) => checked.includes(item.id)).length}/${group.items.length}`,
-          children: (
-            <Space direction="vertical">
-              {group.items.map((item) => (
-                <Checkbox
-                  key={item.id}
-                  checked={checked.includes(item.id)}
-                  onChange={(event) => toggle(item.id, event.target.checked)}
-                >
+      {checklist.map((group) => (
+        <section key={group.id} className="check-group">
+          <h2>
+            {group.title}
+            <span>
+              {group.items.filter((item) => checked.includes(item.id)).length}/{group.items.length}
+            </span>
+          </h2>
+          <ul>
+            {group.items.map((item) => (
+              <li key={item.id}>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={checked.includes(item.id)}
+                    onChange={(event) => toggle(item.id, event.target.checked)}
+                  />
                   {item.label}
-                </Checkbox>
-              ))}
-            </Space>
-          ),
-        }))}
-      />
-    </div>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </article>
   );
 }

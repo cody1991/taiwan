@@ -1,98 +1,142 @@
-import { Alert, Card, Col, Row, Statistic, Tag, Timeline, Typography } from "antd";
 import { Link } from "react-router-dom";
-import { nextMilestone, phases, trip } from "../data";
+import { bookings, budget, nextMilestone, phases, trip } from "../data";
 import { daysUntil } from "../lib/dates";
 
 const todayIso = new Date().toISOString().slice(0, 10);
+const permitHref = bookings.find((item) => item.id === "permit")?.href;
+
+function untilLabel(days: number) {
+  if (days > 0) return ` · 还有 ${days} 天`;
+  if (days === 0) return " · 就是今天";
+  return " · 已过";
+}
+
+function NextCta({ date }: { date: string }) {
+  if (date === trip.permitWindow && permitHref) {
+    return (
+      <a className="btn" href={permitHref} target="_blank" rel="noreferrer">
+        打开入台证说明
+      </a>
+    );
+  }
+  if (date === "2026-12-31" || date === "2027-01-02") {
+    return (
+      <Link className="btn" to="/taiwan">
+        看台湾那天
+      </Link>
+    );
+  }
+  if (date === "2027-02-06") {
+    return (
+      <Link className="btn" to="/options">
+        看走法
+      </Link>
+    );
+  }
+  return (
+    <Link className="btn" to={date <= "2026-12-25" || date === trip.returnDate ? "/flights" : "/checklist"}>
+      {date === trip.returnDate ? "看回程" : date <= "2026-12-25" ? "看航班" : "打开清单"}
+    </Link>
+  );
+}
 
 export function OverviewPage() {
-  const next = nextMilestone(todayIso);
+  const stillTraveling = todayIso <= trip.returnDate;
+  const next = stillTraveling ? nextMilestone(todayIso) : undefined;
   const untilNext = next ? daysUntil(next.date, todayIso) : 0;
 
   return (
-    <div className="page">
-      <Typography.Paragraph className="latin" style={{ fontSize: 22, marginBottom: 4, color: "#1f4b55" }}>
-        Netherlands → Taiwan → Nanshan
-      </Typography.Paragraph>
-      <Typography.Title className="display" level={1} style={{ marginTop: 0, fontSize: 42 }}>
-        {trip.title}
-      </Typography.Title>
-      <Typography.Paragraph style={{ fontSize: 16, maxWidth: 640 }}>
-        12/25 圣诞从阿姆斯特丹直飞，台湾 8 天 7 晚（台北 + 台南 + 101 跨年），1/2 飞深圳南山，过完年 2/14
-        从广州飞回荷兰。
-      </Typography.Paragraph>
+    <article>
+      <p className="kicker latin">Netherlands → Taiwan → Nanshan</p>
+      <h1>{trip.title}</h1>
+      <p className="lede">
+        圣诞从阿姆斯特丹直飞，台湾 8 天只走台北和台南，赶上 101 跨年。1 月 2 日去南山过年，2 月 14
+        日广州直飞回来。不经中东停城。
+      </p>
 
       {next && (
-        <Alert
-          type="warning"
-          showIcon
-          style={{ margin: "8px 0 24px" }}
-          message={`下一件：${next.label}`}
-          description={`${next.date} · ${untilNext >= 0 ? `还有 ${untilNext} 天` : "已过"}`}
-        />
+        <section className="next">
+          <p className="kicker">下一件{untilLabel(untilNext)}</p>
+          <h2>{next.label}</h2>
+          <p>{next.date}</p>
+          <NextCta date={next.date} />
+        </section>
       )}
 
-      <Row gutter={[16, 16]}>
-        <Col xs={12} md={6}>
-          <Card>
-            <Statistic title="离开荷兰" value={trip.awayDays} suffix="天" />
-          </Card>
-        </Col>
-        <Col xs={12} md={6}>
-          <Card>
-            <Statistic title="台湾" value={trip.taiwanDays} suffix="天" />
-          </Card>
-        </Col>
-        <Col xs={12} md={6}>
-          <Card>
-            <Statistic title="南山" value={trip.shenzhenDays} suffix="天" />
-          </Card>
-        </Col>
-        <Col xs={12} md={6}>
-          <Card>
-            <Statistic title="荷兰年假" value={trip.nlLeaveDays} suffix="个工作日" />
-          </Card>
-        </Col>
-      </Row>
+      <section className="facts">
+        <div>
+          <b>{trip.nlLeaveDays}</b>
+          <span>荷兰年假（工作日）</span>
+        </div>
+        <div>
+          <b>{trip.taiwanDays}</b>
+          <span>台湾天数</span>
+        </div>
+        <div>
+          <b>广州直飞</b>
+          <span>春节后回程</span>
+        </div>
+      </section>
+      <p className="quiet">含南山过年，离开荷兰大约 {trip.awayDays} 天。那不是假期，是住家里、必要时远程。</p>
 
-      <div className="route-ribbon">
-        <div className="route-stop">
-          <div className="code">AMS</div>
-          <div className="meta">12/25 起飞 · 华航 CI74</div>
-        </div>
-        <div className="route-stop">
-          <div className="code">TPE</div>
-          <div className="meta">12/26–1/02 · 跨年在台北</div>
-        </div>
-        <div className="route-stop">
-          <div className="code">SZX</div>
-          <div className="meta">南山过年 · 初一 2/6</div>
-        </div>
-        <div className="route-stop">
-          <div className="code">CAN</div>
-          <div className="meta">2/14 南航直飞回 AMS</div>
-        </div>
-      </div>
+      <h2>路线</h2>
+      <ol className="journey">
+        <li>
+          <strong>AMS</strong>
+          <span>12/25 华航 CI74</span>
+        </li>
+        <li>
+          <strong>TPE</strong>
+          <span>12/26–1/02 台北 + 台南</span>
+        </li>
+        <li>
+          <strong>SZX</strong>
+          <span>南山过年 · 初一 2/6</span>
+        </li>
+        <li>
+          <strong>CAN</strong>
+          <span>2/14 南航直飞 AMS</span>
+        </li>
+      </ol>
+      <p>
+        <Link to="/taiwan">看台湾逐日和地图</Link>
+      </p>
 
-      <Typography.Paragraph>
-        <Link to="/taiwan">台湾路线图 · 可在 Google 地图打开</Link>
-      </Typography.Paragraph>
+      <h2>阶段</h2>
+      <ol className="phases">
+        {phases.map((phase) => (
+          <li key={phase.key}>
+            <span>{phase.range}</span>
+            <strong>{phase.label}</strong>
+            <em>{phase.note}</em>
+          </li>
+        ))}
+      </ol>
 
-      <Typography.Title level={3} className="display">
-        阶段
-      </Typography.Title>
-      <Timeline
-        items={phases.map((phase) => ({
-          color: phase.key === "tw" ? "#b4451e" : "#1f4b55",
-          children: (
-            <div>
-              <Tag>{phase.range}</Tag>
-              <strong style={{ marginLeft: 8 }}>{phase.label}</strong>
-              <div style={{ color: "#3d534c", marginTop: 4 }}>{phase.note}</div>
-            </div>
-          ),
-        }))}
-      />
-    </div>
+      <h2>现在就能点</h2>
+      <ul className="links">
+        {bookings.map((item) => (
+          <li key={item.id}>
+            <a href={item.href} target="_blank" rel="noreferrer">
+              {item.name}
+            </a>
+            <span>{item.note}</span>
+          </li>
+        ))}
+      </ul>
+
+      <h2>大概花费（一人）</h2>
+      <table className="plain">
+        <tbody>
+          {budget.map((row) => (
+            <tr key={row.item}>
+              <td>{row.item}</td>
+              <td>{row.range}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="quiet">圣诞去程和春节回程是大头，10 月就要锁可改期。合计大约 €2,200–4,000。</p>
+    </article>
   );
 }
