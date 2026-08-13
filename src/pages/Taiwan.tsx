@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { googleDirUrl, googlePlaceUrl } from "../lib/maps";
 import { assetUrl, dayTone, mapStops, taiwanDays } from "../data";
 
-const googleRoutePlaces = ["桃园国际机场", "台北车站", "九份老街", "台南车站", "台北车站", "桃园国际机场"];
+const googleRoutePlaces = ["桃园国际机场", "台北车站", "九份老街", "高铁台南站", "台北车站", "桃园国际机场"];
 
 export function TaiwanPage() {
   const markers = mapStops.filter((stop) => stop.id !== "tpe-out");
@@ -75,6 +75,11 @@ export function TaiwanPage() {
               </div>
               <h3>{day.title}</h3>
               <p>{day.body}</p>
+              <ol className="day-beats">
+                {day.beats.map((beat) => (
+                  <li key={beat}>{beat}</li>
+                ))}
+              </ol>
               <p className="day-stay">{day.stay}</p>
               <p className="day-tips">{day.tips.join(" · ")}</p>
               <a href={googlePlaceUrl(day.mapsQuery)} target="_blank" rel="noreferrer">

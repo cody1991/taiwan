@@ -25,6 +25,12 @@ describe("itinerary data", () => {
     expect(pictured).toHaveLength(4);
   });
 
+  it("writes a walkable plan for every day", () => {
+    for (const day of taiwanDays) {
+      expect(day.beats.length).toBeGreaterThanOrEqual(3);
+    }
+  });
+
   it("has food pictures on the eating days", () => {
     const pictured = taiwanDays.filter((day) => day.image);
     expect(pictured).toHaveLength(4);
