@@ -203,9 +203,9 @@ export const returnFlights: FlightOption[] = [
     detail: "国泰或荷航直飞，产品往往更舒服。春节口岸排队，当天留 5–6 小时。",
   },
   {
-    name: "伊斯坦布尔停 2 晚",
-    when: "2/13 或 2/14 出发，2/17 到 AMS",
-    detail: "回程才适合停。城好走，倒时差顺。再请 2 天荷兰年假。",
+    name: "香港停 1–2 晚",
+    when: "南山过深圳湾，住香港，再 CX/KL 飞 AMS",
+    detail: "这趟唯一值得停的加项。你人在南山，口岸熟，国泰/荷航飞欧洲稳。不要为了停城去伊斯坦布尔、多哈、迪拜。",
   },
 ];
 
@@ -218,7 +218,7 @@ export const checklist: ChecklistGroup[] = [
       { id: "leave", label: "向公司确认 12/28–12/31 年假，以及 1–2 月能否南山远程" },
       { id: "job-letter", label: "准备在职证明（全职、职位、入职日期）" },
       { id: "photo", label: "2 寸白底证件照（电子 + 一张纸质）" },
-      { id: "watch-return", label: "开始看 2 月 CAN/HKG → AMS 和 IST 中转价" },
+      { id: "watch-return", label: "开始看 2 月 CAN/HKG → AMS 价钱，不要盯中东中转" },
     ],
   },
   {
@@ -236,7 +236,7 @@ export const checklist: ChecklistGroup[] = [
     title: "10 月",
     items: [
       { id: "ams-tpe", label: "买 12/25 AMS–TPE，选可改期" },
-      { id: "return-ticket", label: "买 2 月回程（CZ307 2/14，或 TK 经 IST）" },
+      { id: "return-ticket", label: "买 2 月回程：优先 CZ307 2/14，其次香港出发" },
       { id: "tpe-hotel-1", label: "订台北前 3 晚（12/26–28）" },
       { id: "nye-hotel", label: "订台北跨年 2 晚（12/31–01/01），信义/东区" },
     ],
@@ -270,7 +270,7 @@ export const checklist: ChecklistGroup[] = [
       { id: "souvenir", label: "01/01 买伴手礼" },
       { id: "airport", label: "01/02 提前 3 小时到桃园" },
       { id: "can-train", label: "确认 2/14 广州高铁 + 白云值机" },
-      { id: "tr-visa", label: "若改 IST：补土耳其入境规则" },
+      { id: "tr-visa", label: "若在香港停：确认回程当天口岸排队，预留 5–6 小时" },
     ],
   },
 ];
@@ -315,10 +315,10 @@ export const routeOptions = [
   {
     key: "C",
     title: "锦上添花",
-    summary: "A + 伊斯坦布尔 2 晚",
+    summary: "A + 香港停 1–2 晚",
     points: [
-      "2/13 或 2/14 飞 IST，2/17 到 AMS",
-      "再请 2 天荷兰年假",
+      "南山过深圳湾住香港，再国泰或荷航飞阿姆斯特丹",
+      "不要经伊斯坦布尔、多哈、迪拜停城",
       "去程不要停，回程才停",
     ],
   },
