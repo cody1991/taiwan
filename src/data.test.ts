@@ -36,6 +36,17 @@ describe("itinerary data", () => {
     expect(pictured).toHaveLength(4);
   });
 
+  it("puts Jiufen on Friday and the Palace on Saturday", () => {
+    expect(taiwanDays.find((day) => day.date === "2026-12-18")?.title).toMatch(/九份/);
+    expect(taiwanDays.find((day) => day.date === "2026-12-19")?.title).toMatch(/故宫/);
+  });
+
+  it("gives Tainan three nights and one last Taipei night", () => {
+    expect(taiwanDays.filter((day) => day.city === "台南")).toHaveLength(3);
+    expect(taiwanDays.find((day) => day.date === "2026-12-22")?.city).toBe("台南");
+    expect(taiwanDays.find((day) => day.date === "2026-12-23")?.city).toBe("台北");
+  });
+
   it("has live booking links", () => {
     expect(bookings.length).toBeGreaterThanOrEqual(3);
     for (const item of bookings) {
